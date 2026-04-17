@@ -69,6 +69,14 @@ html, body {
   transform-origin: 70% 70%;
 }
 
+.logo-tagline span.pink {
+  color: var(--pink-light);
+}
+
+.logo-tagline span.black {
+  color: var(--text);
+}
+
 .logo-text {
   font-size: 2.8rem;
   font-weight: 800;
@@ -76,10 +84,6 @@ html, body {
   letter-spacing: -1px;
   line-height: 1;
   animation: bounce 2s infinite ease-in-out;
-}
-
-.logo-tagline .highlight {
-  color: var(--pink-light);
 }
 
 @keyframes wave {
@@ -95,6 +99,31 @@ html, body {
   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
   40% { transform: translateY(-15px); }
   60% { transform: translateY(-7px); }
+}
+
+/* ===== LANGUAGE SELECTOR ===== */
+.lang-container {
+  display: flex;
+  justify-content: center;
+  padding: 0 24px 10px;
+}
+
+.lang-select {
+  padding: 8px 14px;
+  border: 1.5px solid #EFEFEF;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  outline: none;
+  cursor: pointer;
+  background: white;
+  transition: all var(--transition);
+}
+
+.lang-select:focus {
+  border-color: var(--pink-border);
 }
 
 /* ===== SCREENS ===== */
@@ -186,7 +215,7 @@ html, body {
 
 .tag {
   background: var(--pink-soft);
-  color: var(--pink);
+  color: var(--text);
   padding: 8px 14px;
   border-radius: 100px;
   font-size: 0.85rem;
