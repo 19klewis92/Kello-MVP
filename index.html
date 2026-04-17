@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kello | 맞춤 뷰티 서비스 추천</title>
+    <meta name="description" content="Kello - 당신을 위한 맞춤형 K-뷰티 매장 추천 설문조사. 헤어, 메이크업, 네일 등 최고의 한국 뷰티 서비스를 만나보세요.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Logo at Top Center -->
+        <div class="logo-container">
+            <div class="logo-wrapper">
+                <div class="logo-text">Kello</div>
+                <img src="KH.png" class="waving-hand" alt="KH">
+            </div>
+            <div id="logo-tagline" class="logo-tagline"></div>
+        </div>
+
+        <!-- Language Selector -->
+        <div class="lang-container">
+            <select id="lang-selector" class="lang-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh">中文</option>
+            </select>
+        </div>
+
+        <!-- Progress Bar & Back Button -->
+        <div class="progress-wrapper">
+            <button id="back-btn" class="back-btn hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="progress-bar-container">
+                <div id="progress-line" class="progress-line"></div>
+            </div>
+            <div id="progress-text" class="progress-text">1/4</div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="survey-content">
+            <div id="question-container" class="question-container">
+                <!-- Content will be injected by JavaScript -->
+                <div id="question-body" class="question-body slide-in">
+                    <!-- Steps injected here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loader"></div>
+        <p class="loading-text">맞춤 매장을 찾고 있어요...</p>
+    </div>
+
+    <!-- Final Result Container (Hidden by default) -->
+    <div id="result-container" class="result-container hidden">
+        <div class="success-icon">✨</div>
+        <h2>준비가 완료되었어요!</h2>
+        <p>당신에게 딱 맞는 매장들을 확인해보세요.</p>
+        <button id="cta-btn" class="btn btn-cta">👉 맞춤 매장 보러가기</button>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
