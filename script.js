@@ -22,6 +22,8 @@ const TRANSLATIONS = {
     etc: '기타',
     etcPlaceholder: '직접 입력하세요...',
     maxSelectMsg: '(최대 3개 선택 가능)',
+    completeTitle: '참여해 주셔서 감사합니다! 🎉',
+    completeMsg: '소중한 의견이 Kello 서비스에 반영됩니다.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '한국에 방문한 적 있거나\n방문 계획이 있나요?', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '한국에서 해보고 싶은\n서비스는?', options: ['헤어', '메이크업', '네일아트', '피부관리(에스테틱)', '왁싱', '속눈썹', '타투', '두피관리', '세신', '기타'], hasEtc: true, grid: true },
@@ -38,6 +40,8 @@ const TRANSLATIONS = {
     etc: 'Etc',
     etcPlaceholder: 'Type here...',
     maxSelectMsg: '(Select up to 3)',
+    completeTitle: 'Thank you for your feedback! 🎉',
+    completeMsg: 'Your input will shape the future of Kello.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Have you visited Korea or\ndo you plan to visit?', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Which service do you want\nto try in Korea?', options: ['Hair', 'Makeup', 'Nails', 'Skincare', 'Waxing', 'Lashes', 'Tattoo', 'Scalp Care', 'Seshin', 'Etc'], hasEtc: true, grid: true },
@@ -54,6 +58,8 @@ const TRANSLATIONS = {
     etc: 'その他',
     etcPlaceholder: '入力してください...',
     maxSelectMsg: '(最大3つまで選択可能)',
+    completeTitle: 'ご参加ありがとうございます！🎉',
+    completeMsg: 'いただいたご意見はKelloのサービスに活かされます。',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '韓国に訪問したことがあるか\n訪問予定はありますか？', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '韓国で体験したい\n서비스는？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
@@ -70,6 +76,8 @@ const TRANSLATIONS = {
     etc: '其他',
     etcPlaceholder: '请输入...',
     maxSelectMsg: '(最多可选择3项)',
+    completeTitle: '感谢您的参与！🎉',
+    completeMsg: '您的宝贵意见将反映在Kello服务中。',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '您访问过韩国或\n有访问计划吗？', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '您想在韩国尝试\n哪种服务？', options: ['美发', '化妆', '美甲', '皮肤管理', '脱毛', '睫毛', '纹身', '头皮护理', '搓澡', '其他'], hasEtc: true, grid: true },
@@ -86,6 +94,8 @@ const TRANSLATIONS = {
     etc: 'Khác',
     etcPlaceholder: 'Nhập ở đây...',
     maxSelectMsg: '(Chọn tối đa 3)',
+    completeTitle: 'Cảm ơn bạn đã tham gia! 🎉',
+    completeMsg: 'Ý kiến của bạn sẽ được phản ánh vào dịch vụ Kello.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Bạn đã từng đến Hàn Quốc hoặc\ncó kế hoạch đến không?', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Bạn muốn thử dịch vụ nào\ntại Hàn Quốc?', options: ['Làm tóc', 'Trang điểm', 'Làm móng', 'Chăm sóc da', 'Tẩy lông', 'Lông mi', 'Hình xăm', 'Chăm sóc da đầu', 'Seshin (Tẩy da chết)', 'Khác'], hasEtc: true, grid: true },
@@ -102,6 +112,8 @@ const TRANSLATIONS = {
     etc: 'อื่นๆ',
     etcPlaceholder: 'พิมพ์ที่นี่...',
     maxSelectMsg: '(เลือกได้สูงสุด 3 ข้อ)',
+    completeTitle: 'ขอบคุณที่เข้าร่วม! 🎉',
+    completeMsg: 'ความคิดเห็นของคุณจะถูกนำไปพัฒนาบริการ Kello',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'คุณเคยไปเกาหลีหรือ\nมีแผนจะไปหรือไม่?', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'บริการที่คุณอยากลอง\nในเกาหลีคืออะไร?', options: ['ทำผม', 'ช่างแต่งหน้า', 'ทำเล็บ', 'ดูแลผิวพรรณ', 'แว็กซ์', 'ขนตา', 'รอยสัก', 'ดูแลหนังศีรษะ', 'เซชิน (สครับผิว)', 'อื่นๆ'], hasEtc: true, grid: true },
@@ -118,6 +130,8 @@ const TRANSLATIONS = {
     etc: 'Бусад',
     etcPlaceholder: 'Энд бичнэ үү...',
     maxSelectMsg: '(Дээд тал нь 3 сонголт)',
+    completeTitle: 'Оролцсонд баярлалаа! 🎉',
+    completeMsg: 'Таны санал Kello үйлчилгээнд тусгагдах болно.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Та Солонгост очиж байсан уу,\nэсвэл очих төлөвлөгөөтэй юу?', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Солонгост ямар үйлчилгээ\nавахыг хүсэж байна вэ?', options: ['Үсчний газар', 'Нүүр будалт', 'Хумс засал', 'Арьс арчилгаа', 'Вакс', 'Сормуус', 'Шивээс', 'Хуйхны арчилгаа', 'Сэшин (Бие үрэх)', 'Бусад'], hasEtc: true, grid: true },
@@ -344,8 +358,17 @@ function advance() {
 }
 
 async function finish() {
+  const t = TRANSLATIONS[currentLang];
+
+  // 1. Update loading text
+  const loadingTextEl = document.getElementById('loading-text');
+  if (loadingTextEl) loadingTextEl.textContent = t.loading;
+
+  // 2. Show loading
   surveyScreen.classList.remove('active');
   loadingScreen.classList.add('active');
+
+  // 3. Save to Supabase
   const data = {
     visit_experience:  answers['q1'] || '',
     service_type:      answers['q2'] || '',
@@ -356,7 +379,17 @@ async function finish() {
     feature_etc:       etcTags['q4'].join(', '),
   };
   try { await saveSurvey(data); } catch (err) { console.error(err); }
-  setTimeout(() => { window.location.href = 'https://kello.app'; }, 1500);
+
+  // 4. Show complete screen
+  setTimeout(() => {
+    loadingScreen.classList.remove('active');
+    const completeScreen = document.getElementById('complete-screen');
+    const completeTitle  = document.getElementById('complete-title');
+    const completeMsg    = document.getElementById('complete-msg');
+    if (completeTitle) completeTitle.textContent = t.completeTitle;
+    if (completeMsg)   completeMsg.textContent   = t.completeMsg;
+    completeScreen.classList.add('active');
+  }, 1500);
 }
 
 langTabs.addEventListener('click', (e) => {
