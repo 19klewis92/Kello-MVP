@@ -16,7 +16,7 @@ const TRANSLATIONS = {
   ko: {
     tagline: '<span class="pink-stroke">K</span><span class="black">뷰티의 첫</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kello로 뷰티업데이트 중..',
-    finalLoading: '감사합니다.<br>소중한 피드백은 서비스 개선에 큰 도움이 됩니다.<br><span class="highlight-text">잠시 후 Kello 서비스를 만나보세요!</span>',
+    finalLoading: '감사합니다.<br>소중한 피드백은 서비스 개선에 큰 도움이 됩니다.<br><span class="highlight-text">잠시후 <span class="pink">Kello</span>로 뷰티 업데이트 하세요 !</span>',
     next: '다음 →',
     prev: '이전',
     finish: '완료',
@@ -35,7 +35,7 @@ const TRANSLATIONS = {
   en: {
     tagline: 'Your first <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Updating beauty with Kello..',
-    finalLoading: 'Thank you.<br>Your feedback helps us improve.<br><span class="highlight-text">You will meet Kello soon!</span>',
+    finalLoading: 'Thank you.<br>Your feedback helps us improve.<br><span class="highlight-text">You will meet <span class="pink">Kello</span> soon!</span>',
     next: 'Next →',
     prev: 'Prev',
     finish: 'Finish',
@@ -54,7 +54,7 @@ const TRANSLATIONS = {
   ja: {
     tagline: '<span class="black">Kビューティーへの最初の</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kelloでビューティー更新중..',
-    finalLoading: 'ありがとうございます。<br>いただいたフィードバックはサービス向上に役立てられます。<br><span class="highlight-text">まもなくKelloサービスをご案内します！</span>',
+    finalLoading: 'ありがとうございます。<br>いただいたフィードバックはサービス向上に役立てられます。<br><span class="highlight-text">まもなく<span class="pink">Kello</span>サービスをご案内します！</span>',
     next: '次へ →',
     prev: '以前',
     finish: '完了',
@@ -73,7 +73,7 @@ const TRANSLATIONS = {
   zh: {
     tagline: '您的第一个 <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: '正在通过 Kello 更新美妆..',
-    finalLoading: '感谢您的反馈。<br>您的意见对我们非常重要。<br><span class="highlight-text">即将带您了解 Kello 服务！</span>',
+    finalLoading: '感谢您的反馈。<br>您的意见对我们非常重要。<br><span class="highlight-text">即将带您了解 <span class="pink">Kello</span> 服务！</span>',
     next: '下一步 →',
     prev: '之前',
     finish: '完成',
@@ -92,7 +92,7 @@ const TRANSLATIONS = {
   vi: {
     tagline: '<span class="black">K-Beauty</span> đầu tiên của bạn <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Đang cập nhật làm đẹp với Kello..',
-    finalLoading: 'Cảm ơn bạn.<br>Ý kiến của bạn giúp chúng tôi cải thiện dịch vụ.<br><span class="highlight-text">Bạn sẽ sớm gặp lại Kello!</span>',
+    finalLoading: 'Cảm ơn bạn.<br>Ý kiến của bạn giúp chúng tôi cải thiện dịch vụ.<br><span class="highlight-text">Bạn sẽ sớm gặp lại <span class="pink">Kello</span>!</span>',
     next: 'Tiếp theo →',
     prev: 'Trước',
     finish: 'Hoàn tất',
@@ -111,7 +111,7 @@ const TRANSLATIONS = {
   th: {
     tagline: '<span class="black">K-Beauty</span> แรกของคุณ <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'กำลังอัปเดตความงามด้วย Kello..',
-    finalLoading: 'ขอบคุณครับ<br>ความคิดเห็นของคุณช่วยให้เราพัฒนาบริการได้ดีขึ้น<br><span class="highlight-text">เตรียมพบกับ Kello เร็วๆ นี้!</span>',
+    finalLoading: 'ขอบคุณครับ<br>ความคิดเห็นของคุณช่วยให้เราพัฒนาบริการได้ดีขึ้น<br><span class="highlight-text">เตรียมพบกับ <span class="pink">Kello</span> เร็วๆ นี้!</span>',
     next: 'ต่อไป →',
     prev: 'ก่อนหน้า',
     finish: 'เสร็จสิ้น',
@@ -130,7 +130,7 @@ const TRANSLATIONS = {
   mn: {
     tagline: 'Таны анхны <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kello ашиглан гоо сайхнаа шинэчилж байна..',
-    finalLoading: 'Баярлалаа.<br>Таны санал хүсэлт үйлчилгээг сайжруулахад тусална.<br><span class="highlight-text">Удахгүй Kello-той танилцаарай!</span>',
+    finalLoading: 'Баярлалаа.<br>Таны санал хүсэлт үйлчилгээг сайжруулахад тусална.<br><span class="highlight-text">Удахгүй <span class="pink">Kello</span>-той танилцаарай!</span>',
     next: 'Дараах →',
     prev: 'Өмнөх',
     finish: 'Дуусгах',

@@ -596,11 +596,13 @@ html, body {
   display: inline-block;
   font-size: 1.2rem;
   font-weight: 800;
-  background: linear-gradient(90deg, var(--pink), var(--pink-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text);
   margin-top: 8px;
   letter-spacing: 0.5px;
+}
+
+.highlight-text .pink {
+  color: var(--pink-light);
 }
 
 @keyframes pulseText {
