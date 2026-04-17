@@ -27,8 +27,8 @@ const TRANSLATIONS = {
     completeMsg: '소중한 의견이 Kello 서비스에 반영됩니다.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '한국에 방문한 적 있거나\n방문 계획이 있나요?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '한국에서 해보고 싶은\n서비스는?', options: ['헤어', '메이크업', '네일아트', '피부관리(에스테틱)', '왁싱', '속눈썹', '타투', '두피관리', '세신', '기타'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '뷰티샵 예약 시\n불편한 점은?', options: ['의사소통 문제', '한국 번호 인증', '가격 신뢰 문제', '업체 정보 부족', '원하는 시간대 예약 어려움', '기타'], hasEtc: true },
+      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '한국에서 해보고 싶은 서비스는?', options: ['헤어', '메이크업', '네일아트', '피부관리(에스테틱)', '왁싱', '속눈썹', '타투', '두피관리', '세신', '기타'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '뷰티샵 예약 시 불편한 점은?', options: ['의사소통 문제', '한국 번호 인증', '가격 신뢰 문제', '업체 정보 부족', '원하는 시간대 예약 어려움', '기타'], hasEtc: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '필요한 서비스 기능은?', options: ['번역 기능', '예약 대행 서비스', '신뢰할 수 있는 업체/가격 정보', '네비게이션 기능', '대중교통 정보 안내', '택시 호출 기능', '커뮤니티 정보 공유 기능', '기타'], hasEtc: true },
     ]
   },
@@ -46,8 +46,8 @@ const TRANSLATIONS = {
     completeMsg: 'Your input will shape the future of Kello.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Have you visited Korea or\ndo you plan to visit?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Which service do you want\nto try in Korea?', options: ['Hair', 'Makeup', 'Nails', 'Skincare', 'Waxing', 'Lashes', 'Tattoo', 'Scalp Care', 'Seshin', 'Etc'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Pain points when\nbooking a shop?', options: ['Language barrier', 'KR Phone verification', 'Price reliability', 'Lack of info', 'Time slot difficulty', 'Etc'], hasEtc: true },
+      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Which service do you want to try in Korea?', options: ['Hair', 'Makeup', 'Nails', 'Skincare', 'Waxing', 'Lashes', 'Tattoo', 'Scalp Care', 'Seshin', 'Etc'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Pain points when booking a shop?', options: ['Language barrier', 'KR Phone verification', 'Price reliability', 'Lack of info', 'Time slot difficulty', 'Etc'], hasEtc: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Features you need?', options: ['Translation', 'Booking agency', 'Verified info/prices', 'Navigation', 'Public transport info', 'Taxi call', 'Community sharing', 'Etc'], hasEtc: true },
     ]
   },
@@ -65,7 +65,7 @@ const TRANSLATIONS = {
     completeMsg: 'いただいたご意見はKelloのサービスに活かされます。',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '韓国에 訪問したことがあるか\n訪問予定はありますか？', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '韓国で体験したい\n서비스는？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
+      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '韓国で体験したいサービスは？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '予約時の不便な点は？', options: ['言葉の壁', '한국번호認証', '価格の信頼性', '情報の不足', '予約時間の確保', 'その他'], hasEtc: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '必要な機能は？', options: ['翻訳機能', '予約代行', '信頼できる情報', 'ナビ게이션', '公共交通情報', 'タクシー呼び出し', 'コミュニティ', 'その他'], hasEtc: true },
     ]
@@ -84,7 +84,7 @@ const TRANSLATIONS = {
     completeMsg: '您的宝贵意见将反映在Kello服务中。',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '您访问过韩国或\n有访问计划吗？', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '您想在韩国尝试\n哪种服务？', options: ['美发', '化妆', '美甲', '皮肤管理', '脱毛', '睫毛', '纹身', '头皮护理', '搓澡', '其他'], hasEtc: true, grid: true },
+      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '您想在韩国尝试哪种服务？', options: ['美发', '化妆', '美甲', '皮肤管理', '脱毛', '睫毛', '纹身', '头皮护理', '搓澡', '其他'], hasEtc: true, grid: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '预约美容院时的难点？', options: ['沟通问题', '韩国手机验证', '价格信赖', '信息不足', '预约时段困难', '其他'], hasEtc: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '您需要的功能？', options: ['翻译功能', '预约代办', '可靠的信息/价格', '导航功能', '公共交通信息', '打车功能', '社区分享', '其他'], hasEtc: true },
     ]
@@ -103,8 +103,8 @@ const TRANSLATIONS = {
     completeMsg: 'Ý kiến của bạn sẽ được phản ánh vào dịch vụ Kello.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Bạn đã từng đến Hàn Quốc hoặc\ncó kế hoạch đến không?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Bạn muốn thử dịch vụ nào\ntại Hàn Quốc?', options: ['Làm tóc', 'Trang điểm', 'Làm móng', 'Chăm sóc da', 'Tẩy lông', 'Lông mi', 'Hình xăm', 'Chăm sóc da đầu', 'Seshin (Tẩy da chết)', 'Khác'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Khó khăn khi\nđặt lịch làm đẹp?', options: ['Rào cản ngôn ngữ', 'Xác thực số đt Hàn Quốc', 'Độ tin cậy về giá', 'Thiếu thông tin', 'Khó chọn thời gian', 'Khác'], hasEtc: true },
+      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Bạn muốn thử dịch vụ nào tại Hàn Quốc?', options: ['Làm tóc', 'Trang điểm', 'Làm móng', 'Chăm sóc da', 'Tẩy lông', 'Lông mi', 'Hình xăm', 'Chăm sóc da đầu', 'Seshin (Tẩy da chết)', 'Khác'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Khó khăn khi đặt lịch làm đẹp?', options: ['Rào cản ngôn ngữ', 'Xác thực số đt Hàn Quốc', 'Độ tin cậy về giá', 'Thiếu thông tin', 'Khó chọn thời gian', 'Khác'], hasEtc: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Tính năng bạn cần?', options: ['Tính năng dịch thuật', 'Đại lý đặt lịch', 'Thông tin/giá cả uy tín', 'Điều hướng', 'Thông tin giao thông', 'Gọi taxi', 'Chia sẻ cộng đồng', 'Khác'], hasEtc: true },
     ]
   },
@@ -122,8 +122,8 @@ const TRANSLATIONS = {
     completeMsg: 'ความคิดเห็นของคุณจะถูกนำไปพัฒนาบริการ Kello',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'คุณเคยไปเกาหลีหรือ\nมีแผนจะไปหรือไม่?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'บริการที่คุณอยากลอง\nในเกาหลีคืออะไร?', options: ['ทำผม', 'ช่างแต่งหน้า', 'ทำเล็บ', 'ดูแลผิวพรรณ', 'แว็กซ์', 'ขนตา', 'รอยสัก', 'ดูแลหนังศีรษะ', 'เซชิน (สครับผิว)', 'อื่นๆ'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'ความลำบากเมื่อ\nจองร้านเสริมสวย?', options: ['อุปสรรคทางภาษา', 'การยืนยันเบอร์เกาหลี', 'ความน่าเชื่อถือของราคา', 'ขาดข้อมูล', 'จองเวลายาก', 'อื่นๆ'], hasEtc: true },
+      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'บริการที่คุณอยากลองในเกาหลีคืออะไร?', options: ['ทำผม', 'ช่างแต่งหน้า', 'ทำเล็บ', 'ดูแลผิวพรรณ', 'แว็กซ์', 'ขนตา', 'รอยสัก', 'ดูแลหนังศีรษะ', 'เซชิน (สครับผิว)', 'อื่นๆ'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'ความลำบากเมื่อจองร้านเสริมสวย?', options: ['อุปสรรคทางภาษา', 'การยืนยันเบอร์เกาหลี', 'ความน่าเชื่อถือของราคา', 'ขาดข้อมูล', 'จองเวลายาก', 'อื่นๆ'], hasEtc: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'ฟีเจอร์ที่คุณต้องการ?', options: ['ฟีเจอร์แปลภาษา', 'ตัวแทนจอง', 'ข้อมูลและราคาที่เชื่อถือได้', 'การนำทาง', 'ข้อมูลขนส่งสาธารณะ', 'เรียกแท็กซี่', 'แชร์ข้อมูลชุมชน', 'อื่นๆ'], hasEtc: true },
     ]
   },
@@ -141,9 +141,9 @@ const TRANSLATIONS = {
     completeMsg: 'Таны санал Kello үйлчилгээнд тусгагдах болно.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Та Солонгост очиж байсан уу,\nэсвэл очих төлөвлөгөөтэй юу?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Солонгост ямар үйлчилгээ\nавахыг хүсэж байна вэ?', options: ['Үсчний газар', 'Нүүр будалт', 'Хумс засал', 'Арьс арчилгаа', 'Вакс', 'Сормуус', 'Шивээс', 'Хуйхны арчилгаа', 'Сэшин (Бие үрэх)', 'Бусад'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Гоо сайхны салон захиалахад\nтулгардаг бэрхшээл?', options: ['Хэлний бэрхшээл', 'Солонгос дугаар баталгаажуулах', 'Үнийн баталгаагүй байдал', 'Мэдээлэл дутмаг', 'Хүссэн цагтаа захиалах хэцүү', 'Бусад'], hasEtc: true },
-      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Танд ямар үйлчилгээ\nхэрэгтэй вэ?', options: ['Орчуулга', 'Захиалгын агентлаг', 'Найдвартай мэдээлэл/Үнэ', 'Газрын зураг', 'Нийтийн тээврийн мэдээлэл', 'Такси дуудах', 'Олон нийтийн мэдээлэл хуваалцах', 'Бусад'], hasEtc: true },
+      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Солонгост ямар үйлчилгээ авахыг хүсэж байна вэ?', options: ['Үсчний газар', 'Нүүр будалт', 'Хумс засал', 'Арьс арчилгаа', 'Вакс', 'Сормуус', 'Шивээс', 'Хуйхны арчилгаа', 'Сэшин (Бие үрэх)', 'Бусад'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Гоо сайхны салон захиалахад тулгардаг бэрхшээл?', options: ['Хэлний бэрхшээл', 'Солонгос дугаар баталгаажуулах', 'Үнийн баталгаагүй байдал', 'Мэдээлэл дутмаг', 'Хүссэн цагтаа захиалах хэцүү', 'Бусад'], hasEtc: true },
+      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Танд ямар үйлчилгээ хэрэгтэй вэ?', options: ['Орчуулга', 'Захиалгын агентлаг', 'Найдвартай мэдээлэл/Үнэ', 'Газрын зураг', 'Нийтийн тээврийн мэдээлэл', 'Такси дуудах', 'Олон нийтийн мэдээлэл хуваалцах', 'Бусад'], hasEtc: true },
     ]
   }
 };
@@ -255,7 +255,7 @@ function buildStep(step, t, stepIndex) {
     </div>
   `;
 
-  const displayTitle = step.maxSelect ? `${step.title} <span class="limit-hint" style="font-size: 0.8rem; opacity: 0.7;">${t.maxSelectMsg}</span>` : step.title;
+  const displayTitle = step.maxSelect ? `${step.title} <span class="limit-hint">${t.maxSelectMsg}</span>` : step.title;
 
   return `
     <h1 class="question-title">${displayTitle.replace(/\n/g, '<br>')}</h1>
