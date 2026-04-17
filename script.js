@@ -14,7 +14,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // ── Translations ──────────────────────────────────────────────
 const TRANSLATIONS = {
   ko: {
-    tagline: '<span class="pink">K</span>뷰티의 첫 <span class="black">H</span><span class="pink">ello</span>',
+    tagline: '<span class="pink-stroke">K</span><span class="black">뷰티의 첫</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kello로 뷰티업데이트 중..',
     next: '다음 →',
     prev: '이전',
@@ -28,7 +28,7 @@ const TRANSLATIONS = {
     ]
   },
   en: {
-    tagline: 'Your first <span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span>',
+    tagline: 'Your first <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Updating beauty with Kello..',
     next: 'Next →',
     prev: 'Prev',
@@ -42,7 +42,7 @@ const TRANSLATIONS = {
     ]
   },
   ja: {
-    tagline: '<span class="pink">K</span>ビューティーへの最初の <span class="black">H</span><span class="pink">ello</span>',
+    tagline: '<span class="black">Kビューティーへの最初の</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kelloでビューティー更新중..',
     next: '次へ →',
     prev: '以前',
@@ -51,12 +51,12 @@ const TRANSLATIONS = {
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '韓国に訪問したことがあるか\n訪問予定はありますか？', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'single', label: 'Step 2', title: '韓国で体験したい\nサービスは？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', label: 'Step 3', title: '予約時の不便な点は？', subtitle: '複数選択可', options: ['言葉の壁', '韓国番号認証', '価格の信頼性', '情報の不足', '予約時間の確保', 'その他'], hasEtc: true },
+      { id: 'q3', type: 'multiple', label: 'Step 3', title: '予約時の不便な点は？', subtitle: '複数選択可', options: ['言葉の壁', '韓国번호認証', '価格の信頼性', '情報の不足', '予約時間の確保', 'その他'], hasEtc: true },
       { id: 'q4', type: 'multiple', label: 'Step 4', title: '必要な機能は？', subtitle: '複数選択可', options: ['翻訳機能', '予約代行', '信頼できる情報', 'ナビゲーション', '公共交通情報', 'タクシー呼び出し', 'コミュニティ', 'その他'], hasEtc: true },
     ]
   },
   zh: {
-    tagline: '您的第一个 <span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span>',
+    tagline: '您的第一个 <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: '正在通过 Kello 更新美妆..',
     next: '下一步 →',
     prev: '之前',
@@ -70,7 +70,7 @@ const TRANSLATIONS = {
     ]
   },
   vi: {
-    tagline: '<span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span> đầu tiên của bạn',
+    tagline: '<span class="black">K-Beauty</span> đầu tiên của bạn <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Đang cập nhật làm đẹp với Kello..',
     next: 'Tiếp theo →',
     prev: 'Trước',
@@ -84,7 +84,7 @@ const TRANSLATIONS = {
     ]
   },
   th: {
-    tagline: '<span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span> แรกของคุณ',
+    tagline: '<span class="black">K-Beauty</span> แรกของคุณ <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'กำลังอัปเดตความงามด้วย Kello..',
     next: 'ต่อไป →',
     prev: 'ก่อนหน้า',
@@ -98,7 +98,7 @@ const TRANSLATIONS = {
     ]
   },
   mn: {
-    tagline: 'Таны анхны <span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span>',
+    tagline: 'Таны анхны <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kello ашиглан гоо сайхнаа шинэчилж байна..',
     next: 'Дараах →',
     prev: 'Өмнөх',
@@ -203,10 +203,10 @@ function buildStep(step, t, stepIndex) {
     <div class="etc-tags" id="etc-tags"></div>
   ` : '';
 
-  // Navigation Buttons
-  const navHTML = `
+  // Navigation Buttons: Hide entirely for Step 1 as requested
+  const navHTML = stepIndex === 0 ? '' : `
     <div class="nav-buttons">
-      <button class="btn-prev${stepIndex === 0 ? ' hidden' : ''}" id="prev-btn">${t.prev}</button>
+      <button class="btn-prev" id="prev-btn">${t.prev}</button>
       <button class="btn-next" id="next-btn">${stepIndex === t.steps.length - 1 ? 'Finish' : t.next}</button>
     </div>
   `;
@@ -238,7 +238,6 @@ window.addTag = (stepId) => {
     etcTags[stepId].push(val);
     renderTags(stepId);
     etcBox?.classList.remove('show');
-    // Ensure "기타" stays selected
     if (Array.isArray(answers[stepId])) {
       if (!answers[stepId].includes(TRANSLATIONS[currentLang].etc)) {
         answers[stepId].push(TRANSLATIONS[currentLang].etc);

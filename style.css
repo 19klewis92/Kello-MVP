@@ -69,27 +69,30 @@ html, body {
   transform-origin: 70% 70%;
 }
 .logo-tagline {
-  font-size: 1.15rem; /* Increased */
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-sub);
   margin-top: 10px;
   letter-spacing: -0.2px;
 }
 
-.logo-tagline span.pink {
+.logo-tagline span.pink-stroke {
   color: var(--pink-light);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .logo-tagline span.black {
   color: var(--text);
+  font-weight: 700;
 }
 
 .logo-text {
-  font-size: 3.1rem; /* Increased from 2.8rem */
+  font-size: 3.1rem;
   font-weight: 800;
   color: var(--pink-light);
   letter-spacing: -1px;
   line-height: 1;
+  text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
   animation: bounce 2s infinite ease-in-out;
 }
 
