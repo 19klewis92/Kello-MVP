@@ -105,7 +105,8 @@ html, body {
 .lang-tabs {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 12px;
   padding: 10px 24px 20px;
 }
 

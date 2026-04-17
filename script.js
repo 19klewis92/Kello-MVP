@@ -64,6 +64,45 @@ const TRANSLATIONS = {
       { id: 'q3', type: 'multiple', label: 'Step 3', title: '预约美容院时的难点？', subtitle: '多选项目', options: ['沟通问题', '韩国手机验证', '价格信赖', '信息不足', '预约时段困难', '其他'], hasEtc: true },
       { id: 'q4', type: 'multiple', label: 'Step 4', title: '您需要的功能？', subtitle: '多选项目', options: ['翻译功能', '预约代办', '可靠的信息/价格', '导航功能', '公共交通信息', '打车功能', '社区分享', '其他'], hasEtc: true },
     ]
+  },
+  vi: {
+    tagline: '<span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span> đầu tiên của bạn',
+    loading: 'Đang cập nhật làm đẹp với Kello..',
+    next: 'Tiếp theo →',
+    etc: 'Khác',
+    etcPlaceholder: 'Nhập ở đây...',
+    steps: [
+      { id: 'q1', type: 'single', label: 'Step 1', title: 'Bạn đã từng đến Hàn Quốc hoặc\ncó kế hoạch đến không?', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: 'Bạn muốn thử dịch vụ nào\ntại Hàn Quốc?', options: ['Làm tóc', 'Trang điểm', 'Làm móng', 'Chăm sóc da', 'Tẩy lông', 'Lông mi', 'Hình xăm', 'Chăm sóc da đầu', 'Seshin (Tẩy da chết)', 'Khác'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', label: 'Step 3', title: 'Khó khăn khi\nđặt lịch làm đẹp?', subtitle: 'Nhiều lựa chọn', options: ['Rào cản ngôn ngữ', 'Xác thực số đt Hàn Quốc', 'Độ tin cậy về giá', 'Thiếu thông tin', 'Khó chọn thời gian', 'Khác'], hasEtc: true },
+      { id: 'q4', type: 'multiple', label: 'Step 4', title: 'Tính năng bạn cần?', subtitle: 'Nhiều lựa chọn', options: ['Tính năng dịch thuật', 'Đại lý đặt lịch', 'Thông tin/giá cả uy tín', 'Điều hướng', 'Thông tin giao thông', 'Gọi taxi', 'Chia sẻ cộng đồng', 'Khác'], hasEtc: true },
+    ]
+  },
+  th: {
+    tagline: '<span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span> แรกของคุณ',
+    loading: 'กำลังอัปเดตความงามด้วย Kello..',
+    next: 'ต่อไป →',
+    etc: 'อื่นๆ',
+    etcPlaceholder: 'พิมพ์ที่นี่...',
+    steps: [
+      { id: 'q1', type: 'single', label: 'Step 1', title: 'คุณเคยไปเกาหลีหรือ\nมีแผนจะไปหรือไม่?', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: 'บริการที่คุณอยากลอง\nในเกาหลีคืออะไร?', options: ['ทำผม', 'ช่างแต่งหน้า', 'ทำเล็บ', 'ดูแลผิวพรรณ', 'แว็กซ์', 'ขนตา', 'รอยสัก', 'ดูแลหนังศีรษะ', 'เซชิน (สครับผิว)', 'อื่นๆ'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', label: 'Step 3', title: 'ความลำบากเมื่อ\nจองร้านเสริมสวย?', subtitle: 'เลือกได้หลายข้อ', options: ['อุปสรรคทางภาษา', 'การยืนยันเบอร์เกาหลี', 'ความน่าเชื่อถือของราคา', 'ขาดข้อมูล', 'จองเวลายาก', 'อื่นๆ'], hasEtc: true },
+      { id: 'q4', type: 'multiple', label: 'Step 4', title: 'ฟีเจอร์ที่คุณต้องการ?', subtitle: 'เลือกได้หลายข้อ', options: ['ฟีเจอร์แปลภาษา', 'ตัวแทนจอง', 'ข้อมูลและราคาที่เชื่อถือได้', 'การนำทาง', 'ข้อมูลขนส่งสาธารณะ', 'เรียกแท็กซี่', 'แชร์ข้อมูลชุมชน', 'อื่นๆ'], hasEtc: true },
+    ]
+  },
+  mn: {
+    tagline: 'Таны анхны <span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span>',
+    loading: 'Kello ашиглан гоо сайхнаа шинэчилж байна..',
+    next: 'Дараах →',
+    etc: 'Бусад',
+    etcPlaceholder: 'Энд бичнэ үү...',
+    steps: [
+      { id: 'q1', type: 'single', label: 'Step 1', title: 'Та Солонгост очиж байсан уу,\nэсвэл очих төлөвлөгөөтэй юу?', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: 'Солонгост ямар үйлчилгээ\nавахыг хүсэж байна вэ?', options: ['Үсчний газар', 'Нүүр будалт', 'Хумс засал', 'Арьс арчилгаа', 'Вакс', 'Сормуус', 'Шивээс', 'Хуйхны арчилгаа', 'Сэшин (Бие үрэх)', 'Бусад'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', label: 'Step 3', title: 'Гоо сайхны салон захиалахад\nтулгардаг бэрхшээл?', subtitle: 'Олон сонголт боломжтой', options: ['Хэлний бэрхшээл', 'Солонгос дугаар баталгаажуулах', 'Үнийн баталгаагүй байдал', 'Мэдээлэл дутмаг', 'Хүссэн цагтаа захиалах хэцүү', 'Бусад'], hasEtc: true },
+      { id: 'q4', type: 'multiple', label: 'Step 4', title: 'Танд ямар үйлчилгээ\nхэрэгтэй вэ?', subtitle: 'Олон сонголт боломжтой', options: ['Орчуулга', 'Захиалгын агентлаг', 'Найдвартай мэдээлэл/Үнэ', 'Газрын зураг', 'Нийтийн тээврийн мэдээлэл', 'Такси дуудах', 'Олон нийтийн мэдээлэл хуваалцах', 'Бусад'], hasEtc: true },
+    ]
   }
 };
 
