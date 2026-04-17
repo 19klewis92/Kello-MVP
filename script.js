@@ -54,7 +54,7 @@ const TRANSLATIONS = {
   ja: {
     tagline: '<span class="black">Kビューティーへの最初の</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kelloでビューティー更新중..',
-    finalLoading: 'ありがとうございます。<br>いただいたフィードバックはサービス向上に役立てられます。<br><span class="highlight-text">まもなく<span class="pink">Kello</span>サービスをご案内します！</span>',
+    finalLoading: 'ありがとうございます。<br>いただいたフィードバックは service 向上に役立てられます。<br><span class="highlight-text">まもなく<span class="pink">Kello</span> service をご案内します！</span>',
     next: '次へ →',
     prev: '以前',
     finish: '完了',
@@ -62,12 +62,12 @@ const TRANSLATIONS = {
     etcPlaceholder: '入力してください...',
     maxSelectMsg: '(最大3つまで選択可能)',
     completeTitle: 'ご参加ありがとうございます！🎉',
-    completeMsg: 'いただいたご意見はKelloのサービスに活かされます。',
+    completeMsg: 'いただいたご意見はKelloのサービスに活かされます. ',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '韓国에 訪問したことがあるか\n訪問予定はありますか？', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '韓国で体験したいサービスは？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '予約時の不便な点は？', options: ['言葉の壁', '한국번호認証', '価格の信頼性', '情報の不足', '予約時間の確保', 'その他'], hasEtc: true },
-      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '必要な機能は？', options: ['翻訳機能', '予約代行', '信頼できる情報', 'ナビ게이션', '公共交通情報', 'タクシー呼び出し', 'コミュニティ', 'その他'], hasEtc: true },
+      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '必要な機能は？', options: ['翻訳機能', '予約代行', '信頼できる情報', 'ナビげ이션', '公共交通情報', 'タクシー呼び出し', 'コミュニティ', 'その他'], hasEtc: true },
     ]
   },
   zh: {
@@ -255,7 +255,10 @@ function buildStep(step, t, stepIndex) {
     </div>
   `;
 
-  const displayTitle = step.maxSelect ? `${step.title} <span class="limit-hint">${t.maxSelectMsg}</span>` : step.title;
+  // Apply line break before hint if maxSelect exists
+  const displayTitle = step.maxSelect 
+    ? `${step.title}<br><span class="limit-hint" style="font-size: 0.8rem; opacity: 0.7; display: block; margin-top: 4px;">${t.maxSelectMsg}</span>` 
+    : step.title;
 
   return `
     <h1 class="question-title">${displayTitle.replace(/\n/g, '<br>')}</h1>

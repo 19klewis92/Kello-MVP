@@ -406,23 +406,12 @@ html, body {
 
 /* ===== QUESTION TITLE ===== */
 .question-title {
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   font-weight: 800;
+  line-height: 1.3;
   color: var(--text);
-  line-height: 1.35;
-  margin-bottom: 25px;
-  letter-spacing: -0.5px;
+  margin-bottom: 8px;
   word-break: keep-all;
-}
-
-.limit-hint {
-  font-size: 0.75rem; /* Approx 2pt smaller than the default title size context */
-  font-weight: 500;
-  color: var(--text-sub);
-  opacity: 0.8;
-  margin-left: 4px;
-  vertical-align: middle;
-}
   text-align: center; /* Centered */
 }
 
