@@ -316,6 +316,7 @@ html, body {
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 10px;
+  justify-content: center; /* Center-align the tags */
 }
 
 .tag {
