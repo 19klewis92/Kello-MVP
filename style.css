@@ -128,7 +128,12 @@ html, body {
 }
 
 .lang-tab .flag {
-  font-size: 1.8rem;
+  width: 28px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  margin-bottom: 2px;
 }
 
 .lang-tab .lang-name {
