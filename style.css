@@ -68,6 +68,13 @@ html, body {
   animation: wave 2.5s ease-in-out infinite;
   transform-origin: 70% 70%;
 }
+.logo-tagline {
+  font-size: 1.15rem; /* Increased */
+  font-weight: 600;
+  color: var(--text-sub);
+  margin-top: 10px;
+  letter-spacing: -0.2px;
+}
 
 .logo-tagline span.pink {
   color: var(--pink-light);
@@ -78,7 +85,7 @@ html, body {
 }
 
 .logo-text {
-  font-size: 2.8rem;
+  font-size: 3.1rem; /* Increased from 2.8rem */
   font-weight: 800;
   color: var(--pink-light);
   letter-spacing: -1px;
@@ -105,9 +112,11 @@ html, body {
 .lang-tabs {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 10px 24px 20px;
+  flex-wrap: nowrap; /* Forced one line */
+  gap: 10px;
+  padding: 10px 10px 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .lang-tab {
@@ -155,46 +164,27 @@ html, body {
   display: flex;
 }
 
-/* ===== PROGRESS AREA REFACTORED ===== */
+/* ===== PROGRESS AREA (BOTTOM) ===== */
 .progress-area {
-  padding: 10px 24px 0;
+  padding: 10px 24px 30px;
+  margin-top: 10px;
 }
 
 .progress-meta {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
-
-.back-btn {
-  position: absolute;
-  left: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-sub);
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  border-radius: 50%;
-  transition: all var(--transition);
-}
-
-.back-btn:hover { color: var(--pink); }
-.back-btn.hidden { opacity: 0; pointer-events: none; }
 
 .step-name {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--pink-light);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .progress-text {
-  position: absolute;
-  right: 0;
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--pink-light);
@@ -214,6 +204,46 @@ html, body {
   width: 25%;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ===== NAVIGATION BUTTONS ===== */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn-prev {
+  background: none;
+  border: none;
+  padding: 15px 5px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-sub);
+  cursor: pointer;
+  flex: 0.2;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.btn-prev:hover { color: var(--pink); }
+.btn-prev.hidden { visibility: hidden; pointer-events: none; }
+
+.btn-next {
+  flex: 1;
+  background: var(--pink-light);
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 15px var(--pink-shadow);
+  transition: all var(--transition);
+}
+
+.btn-next:active { transform: scale(0.98); }
 
 .back-btn:hover { color: var(--pink); transform: translateX(-2px); }
 .back-btn.hidden { visibility: hidden; pointer-events: none; }

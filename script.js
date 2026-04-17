@@ -17,6 +17,7 @@ const TRANSLATIONS = {
     tagline: '<span class="pink">K</span>뷰티의 첫 <span class="black">H</span><span class="pink">ello</span>',
     loading: 'Kello로 뷰티업데이트 중..',
     next: '다음 →',
+    prev: '이전',
     etc: '기타',
     etcPlaceholder: '직접 입력하세요...',
     steps: [
@@ -30,6 +31,7 @@ const TRANSLATIONS = {
     tagline: 'Your first <span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span>',
     loading: 'Updating beauty with Kello..',
     next: 'Next →',
+    prev: 'Prev',
     etc: 'Etc',
     etcPlaceholder: 'Type here...',
     steps: [
@@ -43,6 +45,7 @@ const TRANSLATIONS = {
     tagline: '<span class="pink">K</span>ビューティーへの最初の <span class="black">H</span><span class="pink">ello</span>',
     loading: 'Kelloでビューティー更新중..',
     next: '次へ →',
+    prev: '以前',
     etc: 'その他',
     etcPlaceholder: '入力してください...',
     steps: [
@@ -56,6 +59,7 @@ const TRANSLATIONS = {
     tagline: '您的第一个 <span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span>',
     loading: '正在通过 Kello 更新美妆..',
     next: '下一步 →',
+    prev: '之前',
     etc: '其他',
     etcPlaceholder: '请输入...',
     steps: [
@@ -69,6 +73,7 @@ const TRANSLATIONS = {
     tagline: '<span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span> đầu tiên của bạn',
     loading: 'Đang cập nhật làm đẹp với Kello..',
     next: 'Tiếp theo →',
+    prev: 'Trước',
     etc: 'Khác',
     etcPlaceholder: 'Nhập ở đây...',
     steps: [
@@ -82,6 +87,7 @@ const TRANSLATIONS = {
     tagline: '<span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span> แรกของคุณ',
     loading: 'กำลังอัปเดตความงามด้วย Kello..',
     next: 'ต่อไป →',
+    prev: 'ก่อนหน้า',
     etc: 'อื่นๆ',
     etcPlaceholder: 'พิมพ์ที่นี่...',
     steps: [
@@ -95,6 +101,7 @@ const TRANSLATIONS = {
     tagline: 'Таны анхны <span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span>',
     loading: 'Kello ашиглан гоо сайхнаа шинэчилж байна..',
     next: 'Дараах →',
+    prev: 'Өмнөх',
     etc: 'Бусад',
     etcPlaceholder: 'Энд бичнэ үү...',
     steps: [
@@ -119,7 +126,6 @@ const questionBody   = document.getElementById('question-body');
 const progressFill   = document.getElementById('progress-fill');
 const progressText   = document.getElementById('progress-text');
 const stepNameElem   = document.getElementById('step-name');
-const backBtn        = document.getElementById('back-btn');
 const logoTagline    = document.getElementById('logo-tagline');
 const langTabs       = document.getElementById('lang-tabs');
 
@@ -154,13 +160,10 @@ function render(stepIndex) {
   progressFill.style.width = `${pct}%`;
   progressText.textContent = `${stepIndex + 1} / ${t.steps.length}`;
 
-  if (stepIndex === 0) backBtn.classList.add('hidden');
-  else backBtn.classList.remove('hidden');
-
   questionBody.classList.add('exit');
 
   setTimeout(() => {
-    questionBody.innerHTML = buildStep(step, t);
+    questionBody.innerHTML = buildStep(step, t, stepIndex);
     questionBody.classList.remove('exit');
     questionBody.classList.add('enter');
 
@@ -175,7 +178,7 @@ function render(stepIndex) {
   }, 200);
 }
 
-function buildStep(step, t) {
+function buildStep(step, t, stepIndex) {
   const currentAnswer = answers[step.id] || (step.type === 'multiple' ? [] : '');
   const etcText = t.etc;
   const hasEtcSelected = step.type === 'multiple'
@@ -196,20 +199,24 @@ function buildStep(step, t) {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
         </button>
       </div>
-      <div class="etc-tags" id="etc-tags"></div>
     </div>
+    <div class="etc-tags" id="etc-tags"></div>
   ` : '';
 
-  const nextBtnHTML = !step.autoNext ? `
-    <div class="next-wrap"><button class="btn-next" id="next-btn">${t.next}</button></div>
-  ` : '';
+  // Navigation Buttons
+  const navHTML = `
+    <div class="nav-buttons">
+      <button class="btn-prev${stepIndex === 0 ? ' hidden' : ''}" id="prev-btn">${t.prev}</button>
+      <button class="btn-next" id="next-btn">${stepIndex === t.steps.length - 1 ? 'Finish' : t.next}</button>
+    </div>
+  `;
 
   return `
     <h1 class="question-title">${step.title.replace(/\n/g, '<br>')}</h1>
     ${step.subtitle ? `<p class="question-sub">${step.subtitle}</p>` : ''}
     <div class="${optionClass}" id="options-container">${optionsHTML}</div>
     ${etcHTML}
-    ${nextBtnHTML}
+    ${navHTML}
   `;
 }
 
@@ -231,6 +238,14 @@ window.addTag = (stepId) => {
     etcTags[stepId].push(val);
     renderTags(stepId);
     etcBox?.classList.remove('show');
+    // Ensure "기타" stays selected
+    if (Array.isArray(answers[stepId])) {
+      if (!answers[stepId].includes(TRANSLATIONS[currentLang].etc)) {
+        answers[stepId].push(TRANSLATIONS[currentLang].etc);
+      }
+    } else {
+      answers[stepId] = TRANSLATIONS[currentLang].etc;
+    }
   }
   input.value = '';
 };
@@ -246,6 +261,7 @@ function attachStepListeners(step) {
   const etcAddBtn = document.getElementById('etc-add-btn');
   const etcInput  = document.getElementById('etc-input');
   const nextBtn   = document.getElementById('next-btn');
+  const prevBtn   = document.getElementById('prev-btn');
   const etcText   = TRANSLATIONS[currentLang].etc;
 
   container.addEventListener('click', (e) => {
@@ -261,7 +277,7 @@ function attachStepListeners(step) {
         if (value === etcText) etcBox?.classList.toggle('show');
         else { etcBox?.classList.remove('show'); }
       }
-      if (step.autoNext) setTimeout(() => advance(), 350);
+      if (step.autoNext && value !== etcText) setTimeout(() => advance(), 350);
     } else {
       if (!answers[step.id]) answers[step.id] = [];
       const idx = answers[step.id].indexOf(value);
@@ -275,6 +291,12 @@ function attachStepListeners(step) {
   if (etcAddBtn) etcAddBtn.addEventListener('click', () => addTag(step.id));
   if (etcInput) etcInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') addTag(step.id); });
   if (nextBtn) nextBtn.addEventListener('click', () => advance());
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      render(currentStep);
+    }
+  });
 }
 
 function advance() {
@@ -303,18 +325,13 @@ async function finish() {
   setTimeout(() => { window.location.href = 'https://kello.app'; }, 1500);
 }
 
-backBtn.addEventListener('click', () => { if (currentStep > 0) { currentStep--; render(currentStep); } });
-
 langTabs.addEventListener('click', (e) => {
   const tab = e.target.closest('.lang-tab');
   if (!tab) return;
   
   currentLang = tab.dataset.lang;
-  
-  // Update Active Tab UI
   document.querySelectorAll('.lang-tab').forEach(t => t.classList.remove('active'));
   tab.classList.add('active');
-  
   render(currentStep);
 });
 
