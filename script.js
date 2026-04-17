@@ -154,6 +154,47 @@ let currentStep = 0;
 const answers = {}; 
 const etcTags = { q2: [], q3: [], q4: [] }; 
 
+// ── Helpers ──────────────────────────────────────────────────
+/**
+ * Maps localized answer values to their Korean equivalents for consistent DB storage.
+ */
+function toKorean(stepId, selectedValues) {
+  if (!selectedValues || (Array.isArray(selectedValues) && selectedValues.length === 0)) {
+    return selectedValues;
+  }
+  
+  const koT = TRANSLATIONS.ko;
+  // If already in Korean, no need to map (but we still map 'Etc' to '기타' if needed, 
+  // though it should already be '기타').
+  if (currentLang === 'ko') return selectedValues;
+
+  const currentT = TRANSLATIONS[currentLang];
+  
+  const stepIdx = koT.steps.findIndex(s => s.id === stepId);
+  if (stepIdx === -1) return selectedValues;
+  
+  const koStep = koT.steps[stepIdx];
+  const currentStep = currentT.steps[stepIdx];
+  
+  const mapValue = (val) => {
+    if (!val) return val;
+    // Check if it's the "Etc" option in current language
+    if (val === currentT.etc) return koT.etc;
+    
+    // Find index in current language options
+    const optIdx = currentStep.options.indexOf(val);
+    if (optIdx !== -1 && koStep.options[optIdx]) {
+      return koStep.options[optIdx];
+    }
+    return val;
+  };
+
+  if (Array.isArray(selectedValues)) {
+    return selectedValues.map(mapValue);
+  }
+  return mapValue(selectedValues);
+}
+
 // ── DOM ───────────────────────────────────────────────────────
 const surveyScreen   = document.getElementById('survey-screen');
 const loadingScreen  = document.getElementById('loading-screen');
@@ -378,14 +419,17 @@ async function finish() {
   surveyScreen.classList.remove('active');
   loadingScreen.classList.add('active');
 
-  // 3. Save to Supabase (usually fast)
+  // 3. Save to Supabase (map to Korean for easy reading)
   const data = {
-    visit_experience:  answers['q1'] || '',
-    service_type:      answers['q2'] || '',
+    visit_experience:  toKorean('q1', answers['q1'] || ''),
+    // service_type is multiple choice but stored as text in DB, so join it.
+    service_type:      Array.isArray(answers['q2']) 
+                         ? toKorean('q2', answers['q2']).join(', ') 
+                         : toKorean('q2', answers['q2'] || ''),
     service_etc:       etcTags['q2'].join(', '),
-    pain_points:       answers['q3'] || [],
+    pain_points:       toKorean('q3', answers['q3'] || []),
     pain_etc:          etcTags['q3'].join(', '),
-    needed_features:   answers['q4'] || [],
+    needed_features:   toKorean('q4', answers['q4'] || []),
     feature_etc:       etcTags['q4'].join(', '),
   };
   try { await saveSurvey(data); } catch (err) { console.error(err); }
