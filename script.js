@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Get environment variables with fallbacks in a way that's safe for Vite and browsers
-const supabaseUrl = import.meta.env?.VITE_SUPABASE_URL || 'https://urxwfvfaxpxigzmulbdb.supabase.co';
-const supabaseAnonKey = import.meta.env?.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVyeHdmdmZheHB4aWd6bXVsYmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzOTAyMTIsImV4cCI6MjA5MTk2NjIxMn0.Tw4m6AJwTf_gHFWF26AdQmP9TAwVebEmC5I-i1VXrAw';
+const supabaseUrl = import.meta.env?.VITE_SUPABASE_URL || 'https://alrgcnzkseipbchfjqzj.supabase.co';
+const supabaseAnonKey = import.meta.env?.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFscmdjbnprc2VpcGJjaGZqcXpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzOTc4MjMsImV4cCI6MjA5MTk3MzgyM30.2zMZdrIJ-iRxCO3U1GXMM6JeRzK2_T8kdVisoH0G9MM';
 
 let supabase = null;
 if (supabaseUrl && supabaseAnonKey) {
