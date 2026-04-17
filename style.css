@@ -47,13 +47,9 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin-top: 10px; /* Reduced margin */
-  margin-bottom: 15px; /* Reduced margin */
+  margin-top: 20px;
+  margin-bottom: 25px;
   position: relative;
   z-index: 10;
 }
@@ -66,22 +62,23 @@ html, body {
 }
 
 .waving-hand {
-  width: 48px; /* Slightly smaller */
-  height: 48px;
+  width: 55px;
+  height: 55px;
   object-fit: contain;
   animation: wave 2.5s ease-in-out infinite;
   transform-origin: 70% 70%;
 }
 .logo-tagline {
-  font-size: 1.1rem; /* Slightly smaller */
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-sub);
-  margin-top: 5px; /* Reduced margin */
+  margin-top: 10px;
   letter-spacing: -0.2px;
 }
 
 .logo-tagline span.pink-stroke {
   color: var(--pink-light);
+  /* Removed stroke as requested for subtitle */
 }
 
 .logo-tagline span.black {
@@ -90,10 +87,10 @@ html, body {
 }
 
 .logo-text {
-  font-size: 2.8rem; /* Slightly smaller for mobile-first */
+  font-size: 3.1rem;
   font-weight: 800;
   color: var(--pink-light);
-  letter-spacing: 4px;
+  letter-spacing: 4px; /* Increased letter-spacing approx 2mm */
   line-height: 1;
   text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
   animation: bounce 2s infinite ease-in-out;
@@ -120,7 +117,7 @@ html, body {
   justify-content: center;
   flex-wrap: nowrap; /* Forced one line */
   gap: 10px;
-  padding: 5px 10px 15px; /* Reduced paddings */
+  padding: 10px 10px 35px; /* Increased bottom padding */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -163,8 +160,8 @@ html, body {
 .screen {
   display: none;
   flex-direction: column;
-  min-height: auto; /* Reset min-height to bring everything up */
-  padding-bottom: 20px;
+  min-height: calc(100vh - 200px); /* Adjusted for layout balance */
+  justify-content: center;
 }
 
 .screen.active {
@@ -173,8 +170,8 @@ html, body {
 
 /* ===== PROGRESS AREA (BOTTOM) ===== */
 .progress-area {
-  padding: 0 24px 10px; 
-  margin-top: 0;
+  padding: 0 24px 25px; /* Removed top padding */
+  margin-top: 0; /* Removed top margin */
 }
 
 .progress-meta {

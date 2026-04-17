@@ -50,8 +50,8 @@ const TRANSLATIONS = {
     etcPlaceholder: '入力してください...',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '韓国に訪問したことがあるか\n訪問予定はありますか？', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'single', label: 'Step 2', title: '韓国で体験したい\nサービスは？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', label: 'Step 3', title: '予約時の不便な点は？', subtitle: '複数選択可', options: ['言葉の壁', '韓国번호認証', '価格の信頼性', '情報の不足', '予約時間の確保', 'その他'], hasEtc: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: '韓国で体験したい\n서비스는？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', label: 'Step 3', title: '予約時の不便な点は？', subtitle: '複数選択可', options: ['言葉の壁', '한국번호認証', '価格の信頼性', '情報の不足', '予約時間の確保', 'その他'], hasEtc: true },
       { id: 'q4', type: 'multiple', label: 'Step 4', title: '必要な機能は？', subtitle: '複数選択可', options: ['翻訳機能', '予約代行', '信頼できる情報', 'ナビゲーション', '公共交通情報', 'タクシー呼び出し', 'コミュニティ', 'その他'], hasEtc: true },
     ]
   },
@@ -123,9 +123,6 @@ const etcTags = { q2: [], q3: [], q4: [] };
 const surveyScreen   = document.getElementById('survey-screen');
 const loadingScreen  = document.getElementById('loading-screen');
 const questionBody   = document.getElementById('question-body');
-const progressFill   = document.getElementById('progress-fill');
-const progressText   = document.getElementById('progress-text');
-const stepNameElem   = document.getElementById('step-name');
 const logoTagline    = document.getElementById('logo-tagline');
 const langTabs       = document.getElementById('lang-tabs');
 
@@ -151,14 +148,8 @@ function render(stepIndex) {
   const t = TRANSLATIONS[currentLang];
   const step = t.steps[stepIndex];
 
-  // Update Tagline & Header
+  // Update Tagline
   logoTagline.innerHTML = t.tagline;
-  stepNameElem.textContent = step.label;
-
-  // Progress
-  const pct = ((stepIndex + 1) / t.steps.length) * 100;
-  progressFill.style.width = `${pct}%`;
-  progressText.textContent = `${stepIndex + 1} / ${t.steps.length}`;
 
   questionBody.classList.add('exit');
 
@@ -172,6 +163,13 @@ function render(stepIndex) {
         questionBody.classList.remove('enter');
       });
     });
+
+    // Handle Progress fill after DOM update
+    const fill = document.getElementById('progress-fill');
+    if (fill) {
+      const pct = ((stepIndex + 1) / t.steps.length) * 100;
+      fill.style.width = `${pct}%`;
+    }
 
     attachStepListeners(step);
     renderTags(step.id);
@@ -203,7 +201,20 @@ function buildStep(step, t, stepIndex) {
     <div class="etc-tags" id="etc-tags"></div>
   ` : '';
 
-  // Navigation Buttons: Hide entirely for Step 1 as requested
+  // Progress UI (Moved here: right under options)
+  const progressHTML = `
+    <div class="progress-area inline-progress" style="padding: 20px 0 10px; margin-top: 10px;">
+      <div class="progress-meta" style="margin-bottom: 8px;">
+        <span class="step-name">${step.label}</span>
+        <span class="progress-text">${stepIndex + 1} / ${t.steps.length}</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+    </div>
+  `;
+
+  // Navigation Buttons
   const navHTML = stepIndex === 0 ? '' : `
     <div class="nav-buttons">
       <button class="btn-prev" id="prev-btn">${t.prev}</button>
@@ -216,6 +227,7 @@ function buildStep(step, t, stepIndex) {
     ${step.subtitle ? `<p class="question-sub">${step.subtitle}</p>` : ''}
     <div class="${optionClass}" id="options-container">${optionsHTML}</div>
     ${etcHTML}
+    ${progressHTML}
     ${navHTML}
   `;
 }
