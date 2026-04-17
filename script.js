@@ -14,7 +14,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // ── Translations ──────────────────────────────────────────────
 const TRANSLATIONS = {
   ko: {
-    tagline: '<span class="pink">K</span>뷰티의 첫 <span class="black">H</span>ello',
+    tagline: '<span class="pink">K</span>뷰티의 첫 <span class="black">H</span><span class="pink">ello</span>',
     loading: 'Kello로 뷰티업데이트 중..',
     next: '다음 →',
     etc: '기타',
@@ -27,7 +27,7 @@ const TRANSLATIONS = {
     ]
   },
   en: {
-    tagline: 'Your first <span class="pink">K</span>-Beauty <span class="black">H</span>ello',
+    tagline: 'Your first <span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span>',
     loading: 'Updating beauty with Kello..',
     next: 'Next →',
     etc: 'Etc',
@@ -40,8 +40,8 @@ const TRANSLATIONS = {
     ]
   },
   ja: {
-    tagline: '<span class="pink">K</span>ビューティーへの最初の <span class="black">H</span>ello',
-    loading: 'Kelloでビューティー更新中..',
+    tagline: '<span class="pink">K</span>ビューティーへの最初の <span class="black">H</span><span class="pink">ello</span>',
+    loading: 'Kelloでビューティー更新중..',
     next: '次へ →',
     etc: 'その他',
     etcPlaceholder: '入力してください...',
@@ -53,7 +53,7 @@ const TRANSLATIONS = {
     ]
   },
   zh: {
-    tagline: '您的第一个 <span class="pink">K</span>-Beauty <span class="black">H</span>ello',
+    tagline: '您的第一个 <span class="pink">K</span>-Beauty <span class="black">H</span><span class="pink">ello</span>',
     loading: '正在通过 Kello 更新美妆..',
     next: '下一步 →',
     etc: '其他',
@@ -78,10 +78,11 @@ const surveyScreen   = document.getElementById('survey-screen');
 const loadingScreen  = document.getElementById('loading-screen');
 const questionBody   = document.getElementById('question-body');
 const progressFill   = document.getElementById('progress-fill');
-const progressLabel  = document.getElementById('progress-label');
+const progressText   = document.getElementById('progress-text');
+const stepNameElem   = document.getElementById('step-name');
 const backBtn        = document.getElementById('back-btn');
 const logoTagline    = document.getElementById('logo-tagline');
-const langSelector   = document.getElementById('lang-selector');
+const langTabs       = document.getElementById('lang-tabs');
 
 // ── Supabase Save ─────────────────────────────────────────────
 async function saveSurvey(data) {
@@ -105,13 +106,14 @@ function render(stepIndex) {
   const t = TRANSLATIONS[currentLang];
   const step = t.steps[stepIndex];
 
-  // Tagline Update
+  // Update Tagline & Header
   logoTagline.innerHTML = t.tagline;
+  stepNameElem.textContent = step.label;
 
   // Progress
   const pct = ((stepIndex + 1) / t.steps.length) * 100;
   progressFill.style.width = `${pct}%`;
-  progressLabel.textContent = `${stepIndex + 1} / ${t.steps.length}`;
+  progressText.textContent = `${stepIndex + 1} / ${t.steps.length}`;
 
   if (stepIndex === 0) backBtn.classList.add('hidden');
   else backBtn.classList.remove('hidden');
@@ -164,7 +166,6 @@ function buildStep(step, t) {
   ` : '';
 
   return `
-    <div class="step-label">${step.label}</div>
     <h1 class="question-title">${step.title.replace(/\n/g, '<br>')}</h1>
     ${step.subtitle ? `<p class="question-sub">${step.subtitle}</p>` : ''}
     <div class="${optionClass}" id="options-container">${optionsHTML}</div>
@@ -190,12 +191,7 @@ window.addTag = (stepId) => {
   if (!etcTags[stepId].includes(val)) {
     etcTags[stepId].push(val);
     renderTags(stepId);
-    
-    // Toggle close input on addition
     etcBox?.classList.remove('show');
-    
-    // Deselect "기타" logic if single, or keep it if multiple but close box
-    // To allow re-opening to add more, normally user clicks "기타" again.
   }
   input.value = '';
 };
@@ -270,8 +266,16 @@ async function finish() {
 
 backBtn.addEventListener('click', () => { if (currentStep > 0) { currentStep--; render(currentStep); } });
 
-langSelector.addEventListener('change', (e) => {
-  currentLang = e.target.value;
+langTabs.addEventListener('click', (e) => {
+  const tab = e.target.closest('.lang-tab');
+  if (!tab) return;
+  
+  currentLang = tab.dataset.lang;
+  
+  // Update Active Tab UI
+  document.querySelectorAll('.lang-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  
   render(currentStep);
 });
 
