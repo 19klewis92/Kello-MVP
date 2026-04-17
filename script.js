@@ -389,6 +389,11 @@ async function finish() {
     if (completeTitle) completeTitle.textContent = t.completeTitle;
     if (completeMsg)   completeMsg.textContent   = t.completeMsg;
     completeScreen.classList.add('active');
+
+    // 5. Final Redirect to official site after 2 seconds
+    setTimeout(() => {
+      window.location.href = 'https://www.mykello.com/';
+    }, 2000);
   }, 1500);
 }
 
