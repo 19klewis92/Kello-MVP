@@ -18,6 +18,7 @@ const TRANSLATIONS = {
     loading: 'Kello로 뷰티업데이트 중..',
     next: '다음 →',
     prev: '이전',
+    finish: '완료',
     etc: '기타',
     etcPlaceholder: '직접 입력하세요...',
     maxSelectMsg: '(최대 3개 선택 가능)',
@@ -33,6 +34,7 @@ const TRANSLATIONS = {
     loading: 'Updating beauty with Kello..',
     next: 'Next →',
     prev: 'Prev',
+    finish: 'Finish',
     etc: 'Etc',
     etcPlaceholder: 'Type here...',
     maxSelectMsg: '(Select up to 3)',
@@ -48,14 +50,15 @@ const TRANSLATIONS = {
     loading: 'Kelloでビューティー更新중..',
     next: '次へ →',
     prev: '以前',
+    finish: '完了',
     etc: 'その他',
     etcPlaceholder: '入力してください...',
     maxSelectMsg: '(最大3つまで選択可能)',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '韓国に訪問したことがあるか\n訪問予定はありますか？', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '韓国で体験したい\nサービスは？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '予約時の不便な点は？', options: ['言葉の壁', '韓国番号認証', '価格の信頼性', '情報の不足', '予約時間の確保', 'その他'], hasEtc: true },
-      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '必要な機能は？', options: ['翻訳機能', '予約代行', '信頼できる情報', 'ナビゲーション', '公共交通情報', 'タクシー呼び出し', 'コミュニティ', 'その他'], hasEtc: true },
+      { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '韓国で体験したい\n서비스는？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
+      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '予約時の不便な点は？', options: ['言葉の壁', '한국번호認証', '価格の信頼性', '情報の不足', '予約時間の確保', 'その他'], hasEtc: true },
+      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '必要な機能は？', options: ['翻訳機能', '予約代行', '信頼できる情報', 'ナビ게이션', '公共交通情報', 'タクシー呼び出し', 'コミュニティ', 'その他'], hasEtc: true },
     ]
   },
   zh: {
@@ -63,6 +66,7 @@ const TRANSLATIONS = {
     loading: '正在通过 Kello 更新美妆..',
     next: '下一步 →',
     prev: '之前',
+    finish: '完成',
     etc: '其他',
     etcPlaceholder: '请输入...',
     maxSelectMsg: '(最多可选择3项)',
@@ -78,14 +82,15 @@ const TRANSLATIONS = {
     loading: 'Đang cập nhật làm đẹp với Kello..',
     next: 'Tiếp theo →',
     prev: 'Trước',
+    finish: 'Hoàn tất',
     etc: 'Khác',
     etcPlaceholder: 'Nhập ở đây...',
     maxSelectMsg: '(Chọn tối đa 3)',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Bạn đã từng đến Hàn Quốc hoặc\ncó kế hoạch đến không?', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Bạn muốn thử dịch vụ nào\ntại Hàn Quốc?', options: ['Làm tóc', 'Trang điểm', 'Làm móng', 'Chăm sóc da', 'Tẩy lông', 'Lông mi', 'Hình xăm', 'Chăm sóc da đầu', 'Seshin (Tẩy da chết)', 'Khác'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Khó khăn khi\nđặt lịch làm đẹp?', options: ['Rào cản ngôn ngữ', 'Xác thực số đt Hàn Quốc', 'Độ tin cậy về giá', 'Thiếu thông tin', 'Khó chọn thời gian', 'Khác'], hasEtc: true },
-      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Tính năng bạn cần?', options: ['Tính năng dịch thuật', 'Đại lý đặt lịch', 'Thông tin/giá cả uy tín', 'Điều hướng', 'Thông tin giao thông', 'Gọi taxi', 'Chia sẻ cộng đồng', 'Khác'], hasEtc: true },
+      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Khó khăn khi\nđặt lịch làm đẹp?', subtitle: 'Nhiều lựa chọn', options: ['Rào cản ngôn ngữ', 'Xác thực số đt Hàn Quốc', 'Độ tin cậy về giá', 'Thiếu thông tin', 'Khó chọn thời gian', 'Khác'], hasEtc: true },
+      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Tính năng bạn cần?', subtitle: 'Nhiều lựa chọn', options: ['Tính năng dịch thuật', 'Đại lý đặt lịch', 'Thông tin/giá cả uy tín', 'Điều hướng', 'Thông tin giao thông', 'Gọi taxi', 'Chia sẻ cộng đồng', 'Khác'], hasEtc: true },
     ]
   },
   th: {
@@ -93,6 +98,7 @@ const TRANSLATIONS = {
     loading: 'กำลังอัปเดตความงามด้วย Kello..',
     next: 'ต่อไป →',
     prev: 'ก่อนหน้า',
+    finish: 'เสร็จสิ้น',
     etc: 'อื่นๆ',
     etcPlaceholder: 'พิมพ์ที่นี่...',
     maxSelectMsg: '(เลือกได้สูงสุด 3 ข้อ)',
@@ -108,6 +114,7 @@ const TRANSLATIONS = {
     loading: 'Kello ашиглан гоо сайхнаа шинэчилж байна..',
     next: 'Дараах →',
     prev: 'Өмнөх',
+    finish: 'Дуусгах',
     etc: 'Бусад',
     etcPlaceholder: 'Энд бичнэ үү...',
     maxSelectMsg: '(Дээд тал нь 3 сонголт)',
@@ -211,7 +218,7 @@ function buildStep(step, t, stepIndex) {
   const navHTML = stepIndex === 0 ? '' : `
     <div class="nav-buttons">
       <button class="btn-prev" id="prev-btn">${t.prev}</button>
-      <button class="btn-next" id="next-btn">${stepIndex === t.steps.length - 1 ? 'Finish' : t.next}</button>
+      <button class="btn-next" id="next-btn">${stepIndex === t.steps.length - 1 ? t.finish : t.next}</button>
     </div>
   `;
 
@@ -227,7 +234,6 @@ function buildStep(step, t, stepIndex) {
     </div>
   `;
 
-  // Question Title with limit mention
   const displayTitle = step.maxSelect ? `${step.title} <span class="limit-hint" style="font-size: 0.8rem; opacity: 0.7;">${t.maxSelectMsg}</span>` : step.title;
 
   return `
@@ -302,14 +308,11 @@ function attachStepListeners(step) {
       const idx = answers[step.id].indexOf(value);
       
       if (idx > -1) {
-        // Toggle off
         answers[step.id].splice(idx, 1);
         btn.classList.remove('selected');
         if (step.hasEtc && value === etcText) etcBox?.classList.remove('show');
       } else {
-        // Toggle on (check for maxSelect limit)
         if (step.maxSelect && answers[step.id].length >= step.maxSelect) {
-          // Could show a brief hint here
           return;
         }
         answers[step.id].push(value);
