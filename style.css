@@ -117,7 +117,7 @@ html, body {
   justify-content: center;
   flex-wrap: nowrap; /* Forced one line */
   gap: 10px;
-  padding: 10px 10px 20px;
+  padding: 10px 10px 35px; /* Increased bottom padding */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -160,7 +160,7 @@ html, body {
 .screen {
   display: none;
   flex-direction: column;
-  min-height: calc(100vh - 180px); /* Height auto adjustment helper */
+  min-height: calc(100vh - 200px); /* Adjusted for layout balance */
   justify-content: center;
 }
 
@@ -170,8 +170,8 @@ html, body {
 
 /* ===== PROGRESS AREA (BOTTOM) ===== */
 .progress-area {
-  padding: 5px 24px 20px; /* Reduced padding */
-  margin-top: 5px;
+  padding: 0 24px 25px; /* Removed top padding */
+  margin-top: 0; /* Removed top margin */
 }
 
 .progress-meta {
