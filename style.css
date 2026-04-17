@@ -78,7 +78,7 @@ html, body {
 
 .logo-tagline span.pink-stroke {
   color: var(--pink-light);
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  /* Removed stroke as requested for subtitle */
 }
 
 .logo-tagline span.black {
@@ -90,7 +90,7 @@ html, body {
   font-size: 3.1rem;
   font-weight: 800;
   color: var(--pink-light);
-  letter-spacing: -1px;
+  letter-spacing: 4px; /* Increased letter-spacing approx 2mm */
   line-height: 1;
   text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
   animation: bounce 2s infinite ease-in-out;
@@ -133,6 +133,7 @@ html, body {
   opacity: 0.4;
   transition: all var(--transition);
   padding: 5px;
+  flex-shrink: 0;
 }
 
 .lang-tab.active {
@@ -141,16 +142,15 @@ html, body {
 }
 
 .lang-tab .flag {
-  width: 28px;
-  height: 20px;
+  width: 25px;
+  height: 18px;
   object-fit: cover;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-  margin-bottom: 2px;
 }
 
 .lang-tab .lang-name {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: var(--text);
   white-space: nowrap;
@@ -160,7 +160,8 @@ html, body {
 .screen {
   display: none;
   flex-direction: column;
-  flex: 1;
+  min-height: calc(100vh - 180px); /* Height auto adjustment helper */
+  justify-content: center;
 }
 
 .screen.active {
@@ -169,15 +170,15 @@ html, body {
 
 /* ===== PROGRESS AREA (BOTTOM) ===== */
 .progress-area {
-  padding: 10px 24px 30px;
-  margin-top: 10px;
+  padding: 5px 24px 20px; /* Reduced padding */
+  margin-top: 5px;
 }
 
 .progress-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .step-name {
@@ -212,24 +213,29 @@ html, body {
 .nav-buttons {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-top: 25px;
+  gap: 12px;
+  margin-top: 20px; /* Tighter gap */
 }
 
 .btn-prev {
-  background: none;
-  border: none;
-  padding: 15px 5px;
+  background: white;
+  border: 1.5px solid var(--pink-border); /* Added border */
+  padding: 18px 5px;
+  border-radius: var(--radius-sm);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-sub);
   cursor: pointer;
-  flex: 0.2;
+  flex: 0.25;
   text-align: center;
   transition: all var(--transition);
 }
 
-.btn-prev:hover { color: var(--pink); }
+.btn-prev:hover { 
+  background: var(--pink-soft);
+  color: var(--pink); 
+  border-color: var(--pink-light);
+}
 .btn-prev.hidden { visibility: hidden; pointer-events: none; }
 
 .btn-next {
