@@ -387,23 +387,10 @@ async function finish() {
   };
   try { await saveSurvey(data); } catch (err) { console.error(err); }
 
-  // 4. Show complete screen (Our App Page) after 3 seconds as requested
+  // 4. Redirect to official site after 3 seconds of showing the detailed loading message
   setTimeout(() => {
-    loadingScreen.classList.remove('active');
-    const completeScreen = document.getElementById('complete-screen');
-    const completeTitle  = document.getElementById('complete-title');
-    const completeMsg    = document.getElementById('complete-msg');
-    
-    if (completeTitle) completeTitle.textContent = t.completeTitle;
-    if (completeMsg)   completeMsg.textContent   = t.completeMsg;
-    
-    completeScreen.classList.add('active');
-
-    // 5. Final Redirect to official site after another 2 seconds
-    setTimeout(() => {
-      window.location.href = 'https://www.mykello.com/';
-    }, 2000);
-  }, 3000); // Changed from 1500 to 3000 for requested loading duration
+    window.location.href = 'https://www.mykello.com/';
+  }, 3000);
 }
 
 langTabs.addEventListener('click', (e) => {
