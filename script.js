@@ -255,13 +255,6 @@ window.addTag = (stepId) => {
   if (!val) return;
 
   if (!etcTags[stepId].includes(val)) {
-    // Check maxSelect limit for tags too
-    const step = TRANSLATIONS[currentLang].steps.find(s => s.id === stepId);
-    if (step && step.maxSelect && (answers[stepId]?.length || 0) >= step.maxSelect) {
-      alert(TRANSLATIONS[currentLang].maxSelectMsg);
-      return;
-    }
-
     etcTags[stepId].push(val);
     renderTags(stepId);
     etcBox?.classList.remove('show');
