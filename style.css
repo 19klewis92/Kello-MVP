@@ -543,6 +543,20 @@ html, body {
   text-align: center;
 }
 
+.loading-logo {
+  margin-bottom: -10px;
+  transform: scale(1.2);
+}
+
+.bounce-hand {
+  animation: waveBounce 1s infinite ease-in-out alternate;
+}
+
+@keyframes waveBounce {
+  0% { transform: translate(0, 0) rotate(-10deg); }
+  100% { transform: translate(0, -15px) rotate(20deg); }
+}
+
 .spinner {
   width: 54px;
   height: 54px;
