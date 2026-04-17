@@ -16,6 +16,7 @@ const TRANSLATIONS = {
   ko: {
     tagline: '<span class="pink-stroke">K</span><span class="black">뷰티의 첫</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kello로 뷰티업데이트 중..',
+    finalLoading: '감사합니다. 소중한 피드백은 서비스 개선에 큰 도움이 됩니다. 잠시 후 Kello 서비스를 만나보세요!',
     next: '다음 →',
     prev: '이전',
     finish: '완료',
@@ -34,6 +35,7 @@ const TRANSLATIONS = {
   en: {
     tagline: 'Your first <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Updating beauty with Kello..',
+    finalLoading: 'Thank you. Your feedback helps us improve. You will meet Kello soon!',
     next: 'Next →',
     prev: 'Prev',
     finish: 'Finish',
@@ -52,6 +54,7 @@ const TRANSLATIONS = {
   ja: {
     tagline: '<span class="black">Kビューティーへの最初の</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kelloでビューティー更新중..',
+    finalLoading: 'ありがとうございます。いただいたフィードバックはサービス向上に役立てられます。まもなくKelloサービスをご案内します！',
     next: '次へ →',
     prev: '以前',
     finish: '完了',
@@ -61,7 +64,7 @@ const TRANSLATIONS = {
     completeTitle: 'ご参加ありがとうございます！🎉',
     completeMsg: 'いただいたご意見はKelloのサービスに活かされます。',
     steps: [
-      { id: 'q1', type: 'single', label: 'Step 1', title: '韓国に訪問したことがあるか\n訪問予定はありますか？', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q1', type: 'single', label: 'Step 1', title: '韓国에 訪問したことがあるか\n訪問予定はありますか？', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: '韓国で体験したい\n서비스는？', options: ['ヘア', 'メイクアップ', 'ネイル', 'エステ', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '予約時の不便な点は？', options: ['言葉の壁', '한국번호認証', '価格の信頼性', '情報の不足', '予約時間の確保', 'その他'], hasEtc: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '必要な機能は？', options: ['翻訳機能', '予約代行', '信頼できる情報', 'ナビ게이션', '公共交通情報', 'タクシー呼び出し', 'コミュニティ', 'その他'], hasEtc: true },
@@ -70,6 +73,7 @@ const TRANSLATIONS = {
   zh: {
     tagline: '您的第一个 <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: '正在通过 Kello 更新美妆..',
+    finalLoading: '感谢您的反馈。您的意见对我们非常重要。即将带您了解 Kello 服务！',
     next: '下一步 →',
     prev: '之前',
     finish: '完成',
@@ -88,6 +92,7 @@ const TRANSLATIONS = {
   vi: {
     tagline: '<span class="black">K-Beauty</span> đầu tiên của bạn <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Đang cập nhật làm đẹp với Kello..',
+    finalLoading: 'Cảm ơn bạn. Ý kiến của bạn giúp chúng tôi cải thiện dịch vụ. Bạn sẽ sớm gặp lại Kello!',
     next: 'Tiếp theo →',
     prev: 'Trước',
     finish: 'Hoàn tất',
@@ -99,13 +104,14 @@ const TRANSLATIONS = {
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Bạn đã từng đến Hàn Quốc hoặc\ncó kế hoạch đến không?', options: ['YES', 'NO'], autoNext: true },
       { id: 'q2', type: 'multiple', maxSelect: 3, label: 'Step 2', title: 'Bạn muốn thử dịch vụ nào\ntại Hàn Quốc?', options: ['Làm tóc', 'Trang điểm', 'Làm móng', 'Chăm sóc da', 'Tẩy lông', 'Lông mi', 'Hình xăm', 'Chăm sóc da đầu', 'Seshin (Tẩy da chết)', 'Khác'], hasEtc: true, grid: true },
-      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Khó khăn khi\nđặt lịch làm đẹp?', subtitle: 'Nhiều lựa chọn', options: ['Rào cản ngôn ngữ', 'Xác thực số đt Hàn Quốc', 'Độ tin cậy về giá', 'Thiếu thông tin', 'Khó chọn thời gian', 'Khác'], hasEtc: true },
-      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Tính năng bạn cần?', subtitle: 'Nhiều lựa chọn', options: ['Tính năng dịch thuật', 'Đại lý đặt lịch', 'Thông tin/giá cả uy tín', 'Điều hướng', 'Thông tin giao thông', 'Gọi taxi', 'Chia sẻ cộng đồng', 'Khác'], hasEtc: true },
+      { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Khó khăn khi\nđặt lịch làm đẹp?', options: ['Rào cản ngôn ngữ', 'Xác thực số đt Hàn Quốc', 'Độ tin cậy về giá', 'Thiếu thông tin', 'Khó chọn thời gian', 'Khác'], hasEtc: true },
+      { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Tính năng bạn cần?', options: ['Tính năng dịch thuật', 'Đại lý đặt lịch', 'Thông tin/giá cả uy tín', 'Điều hướng', 'Thông tin giao thông', 'Gọi taxi', 'Chia sẻ cộng đồng', 'Khác'], hasEtc: true },
     ]
   },
   th: {
     tagline: '<span class="black">K-Beauty</span> แรกของคุณ <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'กำลังอัปเดตความงามด้วย Kello..',
+    finalLoading: 'ขอบคุณครับ ความคิดเห็นของคุณช่วยให้เราพัฒนาบริการได้ดีขึ้น เตรียมพบกับ Kello เร็วๆ นี้!',
     next: 'ต่อไป →',
     prev: 'ก่อนหน้า',
     finish: 'เสร็จสิ้น',
@@ -124,6 +130,7 @@ const TRANSLATIONS = {
   mn: {
     tagline: 'Таны анхны <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kello ашиглан гоо сайхнаа шинэчилж байна..',
+    finalLoading: 'Баярлалаа. Таны санал хүсэлт үйлчилгээг сайжруулахад тусална. Удахгүй Kello-той танилцаарай!',
     next: 'Дараах →',
     prev: 'Өмнөх',
     finish: 'Дуусгах',
@@ -360,15 +367,15 @@ function advance() {
 async function finish() {
   const t = TRANSLATIONS[currentLang];
 
-  // 1. Update loading text
+  // 1. Update loading text to specific final message
   const loadingTextEl = document.getElementById('loading-text');
-  if (loadingTextEl) loadingTextEl.textContent = t.loading;
+  if (loadingTextEl) loadingTextEl.textContent = t.finalLoading;
 
-  // 2. Show loading
+  // 2. Show loading screen
   surveyScreen.classList.remove('active');
   loadingScreen.classList.add('active');
 
-  // 3. Save to Supabase
+  // 3. Save to Supabase (usually fast)
   const data = {
     visit_experience:  answers['q1'] || '',
     service_type:      answers['q2'] || '',
@@ -380,21 +387,23 @@ async function finish() {
   };
   try { await saveSurvey(data); } catch (err) { console.error(err); }
 
-  // 4. Show complete screen
+  // 4. Show complete screen (Our App Page) after 3 seconds as requested
   setTimeout(() => {
     loadingScreen.classList.remove('active');
     const completeScreen = document.getElementById('complete-screen');
     const completeTitle  = document.getElementById('complete-title');
     const completeMsg    = document.getElementById('complete-msg');
+    
     if (completeTitle) completeTitle.textContent = t.completeTitle;
     if (completeMsg)   completeMsg.textContent   = t.completeMsg;
+    
     completeScreen.classList.add('active');
 
-    // 5. Final Redirect to official site after 2 seconds
+    // 5. Final Redirect to official site after another 2 seconds
     setTimeout(() => {
       window.location.href = 'https://www.mykello.com/';
     }, 2000);
-  }, 1500);
+  }, 3000); // Changed from 1500 to 3000 for requested loading duration
 }
 
 langTabs.addEventListener('click', (e) => {
