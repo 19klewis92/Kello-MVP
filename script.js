@@ -20,7 +20,7 @@ const STEPS = [
     title: '한국에 방문한 적 있거나\n방문 계획이 있나요?',
     options: ['YES', 'NO'],
     grid: false,
-    autoNext: true, // auto-advance on selection
+    autoNext: true,
   },
   {
     id: 'q2',
@@ -60,7 +60,8 @@ const TOTAL = STEPS.length;
 
 // ── State ─────────────────────────────────────────────────────
 let currentStep = 0;
-const answers = {}; // { q1: string, q2: string, q2_etc: string, q3: string[], q3_etc: string, q4: string[], q4_etc: string }
+const answers = {}; 
+const etcTags = { q2: [], q3: [], q4: [] }; // Tracks tags for "기타" inputs
 
 // ── DOM ───────────────────────────────────────────────────────
 const surveyScreen   = document.getElementById('survey-screen');
@@ -77,18 +78,18 @@ async function saveSurvey(data) {
     .insert([{
       visit_experience:  data.visit_experience,
       service_type:      data.service_type,
-      service_etc:       data.service_etc       || null,
+      service_etc:       data.service_etc,
       pain_points:       data.pain_points,
-      pain_etc:          data.pain_etc           || null,
+      pain_etc:          data.pain_etc,
       needed_features:   data.needed_features,
-      feature_etc:       data.feature_etc        || null,
+      feature_etc:       data.feature_etc,
     }]);
 
   if (error) throw error;
 }
 
 // ── Render ────────────────────────────────────────────────────
-function render(stepIndex, direction = 'forward') {
+function render(stepIndex) {
   const step = STEPS[stepIndex];
 
   // Progress
@@ -97,13 +98,10 @@ function render(stepIndex, direction = 'forward') {
   progressLabel.textContent = `${stepIndex + 1} / ${TOTAL}`;
 
   // Back button
-  if (stepIndex === 0) {
-    backBtn.classList.add('hidden');
-  } else {
-    backBtn.classList.remove('hidden');
-  }
+  if (stepIndex === 0) backBtn.classList.add('hidden');
+  else backBtn.classList.remove('hidden');
 
-  // Animate out
+  // Fade animation
   questionBody.classList.add('exit');
 
   setTimeout(() => {
@@ -111,7 +109,6 @@ function render(stepIndex, direction = 'forward') {
     questionBody.classList.remove('exit');
     questionBody.classList.add('enter');
 
-    // Trigger reflow then animate in
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         questionBody.classList.remove('enter');
@@ -119,13 +116,13 @@ function render(stepIndex, direction = 'forward') {
     });
 
     attachStepListeners(step, stepIndex);
+    renderTags(step.id);
   }, 200);
 }
 
 // ── Build Step HTML ───────────────────────────────────────────
 function buildStep(step, stepIndex) {
   const currentAnswer = answers[step.id] || (step.type === 'multiple' ? [] : '');
-  const currentEtc    = answers[`${step.id}_etc`] || '';
   const hasEtcSelected = step.type === 'multiple'
     ? currentAnswer.includes('기타')
     : currentAnswer === '기타';
@@ -137,30 +134,22 @@ function buildStep(step, stepIndex) {
       ? currentAnswer.includes(opt)
       : currentAnswer === opt;
 
-    const isQ1 = step.id === 'q1';
-
-    return `
-      <button
-        class="option-btn${isSelected ? ' selected' : ''}${isQ1 ? ' q1-btn' : ''}"
-        data-value="${opt}"
-      >${opt}</button>
-    `;
+    return `<button class="option-btn${isSelected ? ' selected' : ''}" data-value="${opt}">${opt}</button>`;
   }).join('');
 
   const etcHTML = step.hasEtc ? `
     <div class="etc-box${hasEtcSelected ? ' show' : ''}" id="etc-box">
-      <input
-        type="text"
-        class="etc-input"
-        id="etc-input"
-        placeholder="직접 입력해주세요..."
-        value="${currentEtc}"
-      >
+      <div class="etc-input-row">
+        <input type="text" class="etc-input" id="etc-input" placeholder="텍스트를 입력하세요...">
+        <button class="etc-add-btn" id="etc-add-btn" title="추가">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+      </div>
+      <div class="etc-tags" id="etc-tags"></div>
     </div>
   ` : '';
 
-  const showNextBtn = !step.autoNext;
-  const nextBtnHTML = showNextBtn ? `
+  const nextBtnHTML = !step.autoNext ? `
     <div class="next-wrap">
       <button class="btn-next" id="next-btn">다음 →</button>
     </div>
@@ -178,16 +167,48 @@ function buildStep(step, stepIndex) {
   `;
 }
 
+// ── Render Tags ───────────────────────────────────────────────
+function renderTags(stepId) {
+  const tagsContainer = document.getElementById('etc-tags');
+  if (!tagsContainer || !etcTags[stepId]) return;
+
+  tagsContainer.innerHTML = etcTags[stepId].map((tag, idx) => `
+    <div class="tag">
+      <span>${tag}</span>
+      <button class="tag-del" onclick="window.removeTag('${stepId}', ${idx})">&times;</button>
+    </div>
+  `).join('');
+}
+
+// ── Tag Actions ───────────────────────────────────────────────
+window.addTag = (stepId) => {
+  const input = document.getElementById('etc-input');
+  const val = input?.value.trim();
+  if (!val) return;
+
+  if (!etcTags[stepId].includes(val)) {
+    etcTags[stepId].push(val);
+    renderTags(stepId);
+  }
+  input.value = '';
+  input.focus();
+};
+
+window.removeTag = (stepId, index) => {
+  etcTags[stepId].splice(index, 1);
+  renderTags(stepId);
+};
+
 // ── Attach Event Listeners ────────────────────────────────────
 function attachStepListeners(step, stepIndex) {
   const container = document.getElementById('options-container');
   const etcBox    = document.getElementById('etc-box');
+  const etcAddBtn = document.getElementById('etc-add-btn');
   const etcInput  = document.getElementById('etc-input');
   const nextBtn   = document.getElementById('next-btn');
 
   if (!container) return;
 
-  // Option click
   container.addEventListener('click', (e) => {
     const btn = e.target.closest('.option-btn');
     if (!btn) return;
@@ -195,32 +216,24 @@ function attachStepListeners(step, stepIndex) {
     const value = btn.dataset.value;
 
     if (step.type === 'single') {
-      // Single choice
       answers[step.id] = value;
-
       container.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
 
-      // Toggle etc box
       if (step.hasEtc) {
         if (value === '기타') {
           etcBox?.classList.add('show');
           setTimeout(() => etcInput?.focus(), 50);
         } else {
           etcBox?.classList.remove('show');
-          answers[`${step.id}_etc`] = '';
+          etcTags[step.id] = [];
         }
       }
 
-      // Auto-advance (Q1)
-      if (step.autoNext) {
-        setTimeout(() => advance(stepIndex), 350);
-      }
+      if (step.autoNext) setTimeout(() => advance(stepIndex), 350);
 
     } else {
-      // Multiple choice
       if (!answers[step.id]) answers[step.id] = [];
-
       const idx = answers[step.id].indexOf(value);
       if (idx > -1) {
         answers[step.id].splice(idx, 1);
@@ -230,7 +243,6 @@ function attachStepListeners(step, stepIndex) {
         btn.classList.add('selected');
       }
 
-      // Toggle etc box
       if (step.hasEtc && value === '기타') {
         const hasEtc = answers[step.id].includes('기타');
         if (hasEtc) {
@@ -238,74 +250,66 @@ function attachStepListeners(step, stepIndex) {
           setTimeout(() => etcInput?.focus(), 50);
         } else {
           etcBox?.classList.remove('show');
-          answers[`${step.id}_etc`] = '';
+          etcTags[step.id] = [];
         }
       }
     }
   });
 
-  // Etc input
+  if (etcAddBtn) {
+    etcAddBtn.addEventListener('click', () => addTag(step.id));
+  }
   if (etcInput) {
-    etcInput.addEventListener('input', () => {
-      answers[`${step.id}_etc`] = etcInput.value;
+    etcInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') addTag(step.id);
     });
   }
 
-  // Next button
   if (nextBtn) {
     nextBtn.addEventListener('click', () => advance(stepIndex));
   }
 }
 
-// ── Advance / Finish ──────────────────────────────────────────
+// ── Transition ────────────────────────────────────────────────
 function advance(stepIndex) {
   if (stepIndex < TOTAL - 1) {
     currentStep++;
-    render(currentStep, 'forward');
+    render(currentStep);
   } else {
     finish();
   }
 }
 
 async function finish() {
-  // Show loading
   surveyScreen.classList.remove('active');
   loadingScreen.classList.add('active');
 
-  const q2Answer  = answers['q2'] || '';
-  const q3Answers = answers['q3'] || [];
-  const q4Answers = answers['q4'] || [];
-
   const data = {
     visit_experience:  answers['q1'] || '',
-    service_type:      q2Answer === '기타' ? '기타' : q2Answer,
-    service_etc:       answers['q2_etc'] || '',
-    pain_points:       q3Answers.filter(v => v !== '기타'),
-    pain_etc:          answers['q3_etc'] || '',
-    needed_features:   q4Answers.filter(v => v !== '기타'),
-    feature_etc:       answers['q4_etc'] || '',
+    service_type:      answers['q2'] || '',
+    service_etc:       etcTags['q2'].join(', '),
+    pain_points:       answers['q3'] || [],
+    pain_etc:          etcTags['q3'].join(', '),
+    needed_features:   answers['q4'] || [],
+    feature_etc:       etcTags['q4'].join(', '),
   };
 
   try {
     await saveSurvey(data);
-    console.log('✅ Survey saved:', data);
   } catch (err) {
-    console.error('❌ Failed to save survey:', err);
+    console.error('❌ Failed:', err);
   }
 
-  // Redirect after short delay
   setTimeout(() => {
     window.location.href = 'https://kello.app';
   }, 1500);
 }
 
-// ── Back Button ───────────────────────────────────────────────
 backBtn.addEventListener('click', () => {
   if (currentStep > 0) {
     currentStep--;
-    render(currentStep, 'back');
+    render(currentStep);
   }
 });
 
-// ── Init ──────────────────────────────────────────────────────
 render(0);

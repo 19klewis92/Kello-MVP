@@ -78,12 +78,8 @@ html, body {
   animation: bounce 2s infinite ease-in-out;
 }
 
-.logo-tagline {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-sub);
-  margin-top: 8px;
-  letter-spacing: -0.2px;
+.logo-tagline .highlight {
+  color: var(--pink-light);
 }
 
 @keyframes wave {
@@ -135,6 +131,83 @@ html, body {
 
 .back-btn:hover { color: var(--pink); transform: translateX(-2px); }
 .back-btn.hidden { visibility: hidden; pointer-events: none; }
+
+/* ===== ETC BOX REFACTORED ===== */
+.etc-box {
+  margin-top: 12px;
+  display: none;
+  animation: fadeIn 0.2s ease;
+}
+
+.etc-box.show { display: block; }
+
+.etc-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.etc-input {
+  flex: 1;
+  padding: 15px 18px;
+  border: 1.5px solid var(--pink-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  color: var(--text);
+  background: #fff;
+  transition: all var(--transition);
+}
+
+.etc-add-btn {
+  width: 50px;
+  height: 50px;
+  background: var(--pink-light);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.etc-add-btn:hover { background: var(--pink); transform: scale(1.05); }
+
+.etc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag {
+  background: var(--pink-soft);
+  color: var(--pink);
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--pink-border);
+  animation: fadeIn 0.2s ease;
+}
+
+.tag-del {
+  background: none;
+  border: none;
+  color: var(--pink);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
 
 .progress-bar {
   flex: 1;
