@@ -273,18 +273,14 @@ const langTabs       = document.getElementById('lang-tabs');
 // ── Supabase Save ─────────────────────────────────────────────
 async function saveSurvey(data) {
   const { error } = await supabase
-    .from('survey_responses')
+    .from('survey_responses_clean')
     .insert([{
-      visit_experience:   data.visit_experience,
+      visit_korea:        data.visit_korea,
       booking_experience: data.booking_experience,
-      service_type:       data.service_type,
-      service_etc:        data.service_etc,
+      desired_services:   data.desired_services,
       pain_points:        data.pain_points,
-      pain_etc:           data.pain_etc,
       needed_features:    data.needed_features,
-      feature_etc:        data.feature_etc,
-      willingness_to_pay: data.willingness_to_pay,
-      language:           currentLang
+      payment_intent:     data.payment_intent
     }]);
   if (error) throw error;
 }
@@ -490,18 +486,26 @@ async function finish() {
   loadingScreen.classList.add('active');
 
   // 3. Save to Supabase (map to Korean for easy reading)
+  const koT = TRANSLATIONS.ko;
+  const etcText = koT.etc;
+
   const data = {
-    visit_experience:   toKorean('q1', answers['q1'] || ''),
+    visit_korea:        toKorean('q1', answers['q1'] || ''),
     booking_experience: toKorean('q2', answers['q2'] || ''),
-    service_type:       Array.isArray(answers['q3']) 
-                          ? toKorean('q3', answers['q3']).join(', ') 
-                          : toKorean('q3', answers['q3'] || ''),
-    service_etc:        etcTags['q3'].join(', '),
-    pain_points:        toKorean('q4', answers['q4'] || []),
-    pain_etc:           etcTags['q4'].join(', '),
-    needed_features:    toKorean('q5', answers['q5'] || []),
-    feature_etc:        etcTags['q5'].join(', '),
-    willingness_to_pay: toKorean('q6', answers['q6'] || ''),
+    // Merge options and etc tags into single arrays
+    desired_services:   [
+      ...toKorean('q3', (answers['q3'] || []).filter(v => v !== TRANSLATIONS[currentLang].etc)),
+      ...etcTags['q3']
+    ],
+    pain_points:        [
+      ...toKorean('q4', (answers['q4'] || []).filter(v => v !== TRANSLATIONS[currentLang].etc)),
+      ...etcTags['q4']
+    ],
+    needed_features:    [
+      ...toKorean('q5', (answers['q5'] || []).filter(v => v !== TRANSLATIONS[currentLang].etc)),
+      ...etcTags['q5']
+    ],
+    payment_intent:     toKorean('q6', answers['q6'] || ''),
   };
   try { await saveSurvey(data); } catch (err) { console.error(err); }
 
