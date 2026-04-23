@@ -14,7 +14,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // ── Translations ──────────────────────────────────────────────
 const TRANSLATIONS = {
   ko: {
-    tagline: '<span class="pink-stroke">K</span><span class="black">뷰티의 첫</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
+    tagline: '<span class="pink-stroke">K</span><span class="black">-Beauty의 첫</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kello로 뷰티업데이트 중..',
     finalLoading: '감사합니다.<br>소중한 피드백은 서비스 개선에 큰 도움이 됩니다.<br><span class="highlight-text">잠시후 <span class="pink">Kello</span>로 뷰티 업데이트 하세요 !</span>',
     next: '다음 →',
@@ -27,7 +27,7 @@ const TRANSLATIONS = {
     completeMsg: '소중한 의견이 Kello 서비스에 반영됩니다.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '한국에 방문한 적 있거나\n방문 계획이 있나요?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'single', label: 'Step 2', title: '한국에서 예약 서비스를 이용해본 적이 있나요?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(식당, 호텔, 뷰티샵)</span>', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: '한국에서 예약 서비스를\n이용해 본 적이 있나요?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(뷰티샵, 식당, 호텔 등)</span>', options: ['YES', 'NO'], autoNext: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '한국에서 해보고 싶은 뷰티서비스는?', options: ['헤어', '메이크업', '네일아트', '피부관리(에스테틱)', '왁싱', '속눈썹', '타투', '두피관리', '세신', '기타'], hasEtc: true, grid: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '뷰티샵 예약 시 불편한 점은?', options: ['의사소통 문제', '한국 번호 인증', '가격 신뢰 문제', '업체 정보 부족', '원하는 시간대 예약 어려움', '기타'], hasEtc: true },
       { id: 'q5', type: 'multiple', maxSelect: 3, label: 'Step 5', title: '필요한 서비스 기능은?', options: ['번역 기능', '예약 대행 서비스', '신뢰할 수 있는 업체/가격 정보', '네비게이션 기능', '대중교통 정보 안내', '택시 호출 기능', '커뮤니티 정보 공유 기능', '기타'], hasEtc: true },
@@ -35,7 +35,7 @@ const TRANSLATIONS = {
     ]
   },
   en: {
-    tagline: 'Your first <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
+    tagline: '<span class="black">Your first</span> <span class="pink-stroke">K</span><span class="black">-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Updating beauty with Kello..',
     finalLoading: 'Thank you.<br>Your feedback helps us improve.<br><span class="highlight-text">You will meet <span class="pink">Kello</span> soon!</span>',
     next: 'Next →',
@@ -48,7 +48,7 @@ const TRANSLATIONS = {
     completeMsg: 'Your input will shape the future of Kello.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Have you visited Korea or\ndo you plan to visit?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'single', label: 'Step 2', title: 'Have you used booking services in Korea?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(Restaurants, hotels, beauty shops)</span>', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: 'Have you used booking services\nin Korea?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(Beauty shops, restaurants, hotels, etc.)</span>', options: ['YES', 'NO'], autoNext: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Which service do you want to try in Korea?', options: ['Hair', 'Makeup', 'Nails', 'Skincare', 'Waxing', 'Lashes', 'Tattoo', 'Scalp Care', 'Scrub', 'Etc'], hasEtc: true, grid: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Pain points when booking a shop?', options: ['Language barrier', 'Korea Phone verification', 'Price reliability', 'Lack of info', 'Time slot difficulty', 'Etc'], hasEtc: true },
       { id: 'q5', type: 'multiple', maxSelect: 3, label: 'Step 5', title: 'Features you need?', options: ['Translation', 'Booking agency', 'Verified info/prices', 'Navigation', 'Public transport info', 'Taxi call', 'Community sharing', 'Etc'], hasEtc: true },
@@ -56,7 +56,7 @@ const TRANSLATIONS = {
     ]
   },
   ja: {
-    tagline: '<span class="black">Kビューティーへの最初の</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
+    tagline: '<span class="pink-stroke">K</span><span class="black">-Beautyへの最初の</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kelloでビューティアップデート中..',
     finalLoading: 'ありがとうございます。<br>いただいたご意見はサービスの向上に役立てさせていただきます。<br><span class="highlight-text">まもなく<span class="pink">Kello</span>のサービスをご案内します！</span>',
     next: '次へ →',
@@ -69,7 +69,7 @@ const TRANSLATIONS = {
     completeMsg: 'いただいたご意見はKelloのサービス運営に反映させていただきます。',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '韓国を訪れたことはありますか？\nまたは、今後の予定はありますか？', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'single', label: 'Step 2', title: '韓国で予約サービスを利用したことはありますか？\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">（レストラン、ホテル、美容室など）</span>', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: '韓国で予約サービスを\n利用したことがありますか？\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">（美容室、レストラン、ホテルなど）</span>', options: ['YES', 'NO'], autoNext: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '韓国で体験したいサービスは？', options: ['ヘア', 'メイクアップ', 'ネイル', '皮膚管理(エステ)', 'ワックス', 'まつげ', 'タトゥー', '頭皮ケア', 'アカスリ', 'その他'], hasEtc: true, grid: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '美容室等の予約時に不便な点は？', options: ['言葉の壁', '韓国の電話番号認証', '不透明な価格設定', '情報の不足', '希望時間の予約が困難', 'その他'], hasEtc: true },
       { id: 'q5', type: 'multiple', maxSelect: 3, label: 'Step 5', title: 'どのような機能が必要ですか？', options: ['翻訳機能', '予約代行サービス', '信頼できる店舗/価格情報', 'ナビゲーション機能', '公共交通機関の案内', 'タクシー配車', 'コミュニティ等の情報共有', 'その他'], hasEtc: true },
@@ -77,7 +77,7 @@ const TRANSLATIONS = {
     ]
   },
   zh: {
-    tagline: '您的第一个 <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
+    tagline: '<span class="black">您的第一个</span> <span class="pink-stroke">K</span><span class="black">-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: '正在通过 Kello 更新美妆..',
     finalLoading: '感谢您的反馈。<br>您的意见对我们非常重要。<br><span class="highlight-text">即将带您了解 <span class="pink">Kello</span> 服务！</span>',
     next: '下一步 →',
@@ -90,7 +90,7 @@ const TRANSLATIONS = {
     completeMsg: '您的宝贵意见将反映在Kello服务中。',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: '您访问过韩国或\n有访问计划吗？', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'single', label: 'Step 2', title: '您在韩国使用过预约服务吗？\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">（餐厅，酒店，美容院）</span>', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: '您在韩国使用过\n预约服务吗？\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">（美容院，餐厅，酒店等）</span>', options: ['YES', 'NO'], autoNext: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: '您想在韩国尝试哪种服务？', options: ['美发', '化妆', '美甲', '皮肤管理', '脱毛', '睫毛', '纹身', '头皮护理', '搓澡', '其他'], hasEtc: true, grid: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: '预约美容院时的难点？', options: ['沟通问题', '韩国手机验证', '价格缺乏透明度', '信息不足', '预约时段困难', '其他'], hasEtc: true },
       { id: 'q5', type: 'multiple', maxSelect: 3, label: 'Step 5', title: '您需要的功能？', options: ['翻译功能', '预约代办', '可靠的信息/价格', '导航功能', '公共交通信息', '打车服务', '社区分享', '其他'], hasEtc: true },
@@ -98,7 +98,7 @@ const TRANSLATIONS = {
     ]
   },
   vi: {
-    tagline: '<span class="black">K-Beauty</span> đầu tiên của bạn <span class="black">H</span><span class="pink-stroke">ello</span>',
+    tagline: '<span class="pink-stroke">K</span><span class="black">-Beauty đầu tiên của bạn</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Đang cập nhật làm đẹp với Kello..',
     finalLoading: 'Cảm ơn bạn.<br>Ý kiến của bạn sẽ giúp chúng tôi cải thiện dịch vụ.<br><span class="highlight-text">Bạn sẽ sớm gặp Kello tại <span class="pink">Kello</span>!</span>',
     next: 'Tiếp theo →',
@@ -111,7 +111,7 @@ const TRANSLATIONS = {
     completeMsg: 'Ý kiến của bạn sẽ được phản ánh vào dịch vụ Kello.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Bạn đã từng đến Hàn Quốc hoặc\ncó kế hoạch đến chưa?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'single', label: 'Step 2', title: 'Bạn đã từng sử dụng dịch vụ đặt chỗ ở Hàn Quốc chưa?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(Nhà hàng, khách sạn, tiệm làm đẹp)</span>', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: 'Bạn đã từng sử dụng dịch vụ\nđặt chỗ ở Hàn Quốc chưa?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(Tiệm làm đẹp, nhà hàng, khách sạn, v.v.)</span>', options: ['YES', 'NO'], autoNext: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Bạn muốn thử dịch vụ nào tại Hàn Quốc?', options: ['Làm tóc', 'Trang điểm', 'Làm móng', 'Chăm sóc da', 'Tẩy lông', 'Lông mi', 'Hình xăm', 'Chăm sóc da đầu', 'Tẩy da chết toàn thân', 'Khác'], hasEtc: true, grid: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Khó khăn khi đặt lịch làm đẹp?', options: ['Rào cản ngôn ngữ', 'Xác minh số điện thoại Hàn Quốc', 'Lo ngại về giá cả', 'Thiếu thông tin', 'Khó chọn thời gian', 'Khác'], hasEtc: true },
       { id: 'q5', type: 'multiple', maxSelect: 3, label: 'Step 5', title: 'Tính năng bạn cần?', options: ['Dịch thuật', 'Đại lý đặt lịch', 'Thông tin/giá cả uy tín', 'Điều hướng', 'Thông tin giao thông công cộng', 'Gọi taxi', 'Chia sẻ cộng đồng', 'Khác'], hasEtc: true },
@@ -119,7 +119,7 @@ const TRANSLATIONS = {
     ]
   },
   th: {
-    tagline: '<span class="black">K-Beauty</span> แรกของคุณ <span class="black">H</span><span class="pink-stroke">ello</span>',
+    tagline: '<span class="pink-stroke">K</span><span class="black">-Beauty แรกของคุณ</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'กำลังอัปเดตความงามด้วย Kello..',
     finalLoading: 'ขอบคุณค่ะ/ครับ<br>ความคิดเห็นของคุณช่วยให้เราพัฒนาบริการได้ดียิ่งขึ้น<br><span class="highlight-text">เตรียมพบกับ <span class="pink">Kello</span> เร็วๆ นี้!</span>',
     next: 'ถัดไป →',
@@ -132,7 +132,7 @@ const TRANSLATIONS = {
     completeMsg: 'ความคิดเห็นของคุณจะนำไปร่วมพัฒนาบริการของ Kello',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'คุณเคยไปเกาหลีหรือ\nมีแผนจะเดินทางไปหรือไม่?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'single', label: 'Step 2', title: 'คุณเคยใช้บริการจองในเกาหลีหรือไม่?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(ร้านอาหาร โรงแรม ร้านเสริมสวย)</span>', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: 'คุณเคยใช้บริการจอง\nในเกาหลีหรือไม่?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(ร้านเสริมสวย ร้านอาหาร โรงแรม ฯ l.)</span>', options: ['YES', 'NO'], autoNext: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'บริการเสริมความงามที่คุณอยากลองในเกาหลีคืออะไร?', options: ['ทำผม', 'แต่งหน้า', 'ทำเล็บ', 'ดูแลผิวพรรณ', 'แว็กซ์', 'ต่อขนตา', 'สัก', 'ดูแลหนังศีรษะ', 'สครับผิว (ขัดตัว)', 'อื่นๆ'], hasEtc: true, grid: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'ความลำบากเมื่อจองร้านเสริมสวย?', options: ['อุปสรรคทางภาษา', 'การยืนยันเบอร์โทรศัพท์เกาหลี', 'ความไม่ชัดเจนของราคา', 'ข้อมูลไม่เพียงพอ', 'จองเวลาที่ต้องการยาก', 'อื่นๆ'], hasEtc: true },
       { id: 'q5', type: 'multiple', maxSelect: 3, label: 'Step 5', title: 'ฟีเจอร์ที่คุณต้องการ?', options: ['ฟีเจอร์แปลภาษา', 'ตัวแทนรับจอง', 'ข้อมูล/ราคาที่เชื่อถือได้', 'ระบบนำทาง', 'ข้อมูลขนส่งสาธารณะ', 'เรียกแท็กซี่', 'แชร์ข้อมูลในคอมมูนิตี้', 'อื่นๆ'], hasEtc: true },
@@ -140,7 +140,7 @@ const TRANSLATIONS = {
     ]
   },
   mn: {
-    tagline: 'Таны анхны <span class="black">K-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
+    tagline: '<span class="black">Таны анхны</span> <span class="pink-stroke">K</span><span class="black">-Beauty</span> <span class="black">H</span><span class="pink-stroke">ello</span>',
     loading: 'Kello ашиглан гоо сайхнаа шинэчилж байна...',
     finalLoading: 'Баярлалаа.<br>Таны санал хүсэлт үйлчилгээг сайжруулахад туслах болно.<br><span class="highlight-text">Удахгүй <span class="pink">Kello</span>-той танилцаарай!</span>',
     next: 'Дараах →',
@@ -153,7 +153,7 @@ const TRANSLATIONS = {
     completeMsg: 'Таны санал Kello-ийн үйлчилгээнд тусгагдах болно.',
     steps: [
       { id: 'q1', type: 'single', label: 'Step 1', title: 'Та Солонгост очиж байсан уу,\nэсвэл очих төлөвлөгөөтэй юу?', options: ['YES', 'NO'], autoNext: true },
-      { id: 'q2', type: 'single', label: 'Step 2', title: 'Та Солонгост захиалгын үйлчилгээ ашиглаж байсан уу?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(Ресторан, зочид буудал, гоо сайхны салон)</span>', options: ['YES', 'NO'], autoNext: true },
+      { id: 'q2', type: 'single', label: 'Step 2', title: 'Та Солонгост захиалгын\nүйлчилгээ ашиглаж байсан уу?\n<span style="font-size: 0.8rem; opacity: 0.8; display: block; margin-top: 5px;">(Салон, ресторан, зочид буудал гэх мэт)</span>', options: ['YES', 'NO'], autoNext: true },
       { id: 'q3', type: 'multiple', maxSelect: 3, label: 'Step 3', title: 'Солонгост ямар үйлчилгээг туршиж үзмээр байна вэ?', options: ['Үс засалт', 'Нүүр будалт', 'Хумс засал', 'Арьс арчилгаа', 'Вакс', 'Сормуус', 'Шивээс', 'Хуйхны арчилгаа', 'Биеийн скраб', 'Бусад'], hasEtc: true, grid: true },
       { id: 'q4', type: 'multiple', maxSelect: 3, label: 'Step 4', title: 'Салон захиалахад тулгардаг бэрхшээл?', options: ['Хэлний бэрхшээл', 'Солонгос утасны дугаар баталгаажуулах', 'Үнэ тодорхойгүй байх', 'Мэдээлэл дутмаг', 'Хүссэн цагтаа захиалах хэцүү', 'Бусад'], hasEtc: true },
       { id: 'q5', type: 'multiple', maxSelect: 3, label: 'Step 5', title: 'Танд ямар функц хэрэгтэй вэ?', options: ['Орчуулга', 'Захиалгын үйлчилгээ', 'Найдвартай мэдээлэл/Үнэ', 'Газрын зураг', 'Нийтийн тээврийн мэдээлэл', 'Такси дуудах', 'Олон нийтийн мэдээлэл хуваалцах', 'Бусад'], hasEtc: true },

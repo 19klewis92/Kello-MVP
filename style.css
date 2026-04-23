@@ -77,8 +77,7 @@ html, body {
 }
 
 .logo-tagline span.pink-stroke {
-  color: var(--pink-light);
-  /* Removed stroke as requested for subtitle */
+  color: #FF1A43; /* Intense vivid pink for subtitle only */
 }
 
 .logo-tagline span.black {
